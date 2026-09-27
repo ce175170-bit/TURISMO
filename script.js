@@ -2130,7 +2130,7 @@ const planningData = {
                     "Hotel CIORVA",
 
                 imagen:
-                    "img/ciorva.jpg",
+                    "img/ciorva.webp",
 
                 direccion:
                     "Betanzos, Potosí",
@@ -2148,7 +2148,7 @@ const planningData = {
                     "Residencial HERBAS",
 
                 imagen:
-                    "img/herbas.png",
+                    "img/herbas.webp",
 
                 direccion:
                     "Calle Potosí",
@@ -2166,7 +2166,7 @@ const planningData = {
                     "Residencial BOLIVAR",
 
                 imagen:
-                    "img/bolivar.png",
+                    "img/bolivar.webp",
 
                 direccion:
                     "Av. Bolivar",
@@ -2205,7 +2205,7 @@ const planningData = {
                     "Comidas Avaroa",
 
                 imagen:
-                    "img/planifica/restaurantes/comidas-avaroa.jpg",
+                    "img/planifica/restaurantes/comidas-avaroa.webp",
 
                 direccion:
                     "Betanzos, Potosí",
@@ -2223,7 +2223,7 @@ const planningData = {
                     "Truchería Otalora",
 
                 imagen:
-                    "img/planifica/restaurantes/trucheria-otalora.jpg",
+                    "img/planifica/restaurantes/trucheria-otalora.webp",
 
                 direccion:
                     "Betanzos, Potosí",
@@ -2262,7 +2262,7 @@ const planningData = {
                     "Centro de Salud ROBERTO LOAYZA",
 
                 imagen:
-                    "img/hospital.jpg",
+                    "img/hospital.webp",
 
                 direccion:
                     "Betanzos, Potosí",
@@ -2280,7 +2280,7 @@ const planningData = {
                     "Caja Nacional de Salud Betanzos",
 
                 imagen:
-                    "img/caja.png",
+                    "img/caja.webp",
 
                 direccion:
                     "Betanzos, Potosí",
@@ -2319,7 +2319,7 @@ const planningData = {
                     "Farmacia Betanzos",
 
                 imagen:
-                    "img/planifica/farmacias/farmacia-betanzos.jpg",
+                    "img/planifica/farmacias/farmacia-betanzos.webp",
 
                 direccion:
                     "Avenida Bolívar, frente a COTAP y Parque Infantil",
@@ -2337,7 +2337,7 @@ const planningData = {
                     "Farmacia Medrano",
 
                 imagen:
-                    "img/planifica/farmacias/farmacia-medrano.jpg",
+                    "img/planifica/farmacias/farmacia-medrano.webp",
 
                 direccion:
                     "Zona Chorrillos, Avenida Final Bolívar",
@@ -2376,7 +2376,7 @@ const planningData = {
                     "Transporte local",
 
                 imagen:
-                    "img/planifica/transporte/transporte-local.jpg",
+                    "img/planifica/transporte/transporte-local.webp",
 
                 direccion:
                     "Betanzos, Potosí",
@@ -2394,7 +2394,7 @@ const planningData = {
                     "Transporte hacia Potosí",
 
                 imagen:
-                    "img/planifica/transporte/transporte-potosi.jpg",
+                    "img/planifica/transporte/transporte-potosi.webp",
 
                 direccion:
                     "Puntos de salida locales",
