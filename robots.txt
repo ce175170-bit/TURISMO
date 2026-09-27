@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ce175170-bit.github.io/TURISMO/sitemap.xml
