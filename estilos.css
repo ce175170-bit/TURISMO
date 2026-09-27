@@ -1,0 +1,3829 @@
+/* =========================================================
+   VARIABLES
+========================================================= */
+:root {
+  --verde: #0a3d1e;
+  --verde-oscuro: #031b0d;
+  --verde-profundo: #061f10;
+  --verde-medio: #12552c;
+  --verde-claro: #1b7040;
+  --dorado: #d4af37;
+  --dorado-claro: #f1d77a;
+  --dorado-brillante: #f7df8b;
+  --dorado-oscuro: #a98620;
+  --blanco: #ffffff;
+  --blanco-suave: #f7f5ef;
+  --gris: #d7ddd8;
+  --gris-texto: #b9c4bd;
+  --negro: #07100a;
+  --negro-suave: #0c1710;
+  --sombra: rgba(0, 0, 0, 0.25);
+  --sombra-fuerte: rgba(0, 0, 0, 0.45);
+  --transicion: 0.35s ease;
+  --transicion-lenta: 0.7s ease;
+  --ancho: 1240px;
+}
+/* =========================================================
+   RESET
+========================================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+body {
+  font-family: "Montserrat", sans-serif;
+  background: var(--blanco-suave);
+  color: var(--negro);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+body.menu-open {
+  overflow: hidden;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+button,
+input,
+textarea {
+  font-family: inherit;
+}
+button {
+  border: none;
+  cursor: pointer;
+}
+img {
+  max-width: 100%;
+  display: block;
+}
+ul {
+  list-style: none;
+}
+/* =========================================================
+   CONTENEDOR
+========================================================= */
+.container {
+  width: min(92%, var(--ancho));
+  margin: 0 auto;
+}
+/* =========================================================
+   PRELOADER
+========================================================= */
+#preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(
+    circle at center,
+    var(--verde-medio) 0%,
+    var(--verde-oscuro) 65%,
+    #010703 100%
+  );
+  transition:
+    opacity 0.8s ease,
+    visibility 0.8s ease;
+}
+#preloader.loaded {
+  opacity: 0;
+  visibility: hidden;
+}
+.loader-content {
+  text-align: center;
+  color: var(--blanco);
+}
+.loader-symbol {
+  width: 70px;
+  height: 70px;
+  margin: 0 auto 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+}
+.loader-symbol span {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--dorado);
+  animation: loaderDots 1.2s infinite ease-in-out;
+}
+.loader-symbol span:nth-child(2) {
+  animation-delay: 0.15s;
+}
+.loader-symbol span:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.loader-content h2 {
+  font-family: "Cinzel", serif;
+  font-size: clamp(1.5rem, 4vw, 2.2rem);
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  color: var(--dorado-claro);
+}
+.loader-content p {
+  margin-top: 7px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.15rem;
+  color: rgba(255, 255, 255, 0.75);
+}
+@keyframes loaderDots {
+  0%,
+  80%,
+  100% {
+    transform: scale(0.7);
+    opacity: 0.45;
+  }
+  40% {
+    transform: scale(1.5);
+    opacity: 1;
+  }
+}
+/* =========================================================
+   SCROLL PROGRESS
+========================================================= */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  z-index: 10001;
+  background: rgba(0, 0, 0, 0.1);
+}
+#scrollProgressBar {
+  width: 0;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    var(--dorado-oscuro),
+    var(--dorado-claro),
+    var(--dorado)
+  );
+  box-shadow: 0 0 12px rgba(212, 175, 55, 0.7);
+  transition: width 0.05s linear;
+}
+/* =========================================================
+   HEADER
+========================================================= */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 5000;
+  padding: 18px 0;
+  transition:
+    background 0.4s ease,
+    padding 0.4s ease,
+    box-shadow 0.4s ease,
+    backdrop-filter 0.4s ease;
+}
+.header.scrolled {
+  padding: 10px 0;
+  background: rgba(3, 27, 13, 0.94);
+  backdrop-filter: blur(15px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+}
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+/* =========================================================
+   LOGO
+========================================================= */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  position: relative;
+  flex-shrink: 0;
+}
+.logo-symbol {
+  width: 43px;
+  height: 43px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--dorado);
+  color: var(--dorado);
+  transform: rotate(45deg);
+  transition: var(--transicion);
+}
+.logo-symbol i {
+  transform: rotate(-45deg);
+  font-size: 17px;
+}
+.logo:hover .logo-symbol {
+  background: var(--dorado);
+  color: var(--verde-oscuro);
+  box-shadow: 0 0 18px rgba(212, 175, 55, 0.35);
+}
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+.logo-main {
+  font-family: "Cinzel", serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  color: var(--blanco);
+}
+.logo-sub {
+  margin-top: 5px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 0.95rem;
+  letter-spacing: 0.18em;
+  color: var(--dorado-claro);
+  text-transform: uppercase;
+}
+/* =========================================================
+   NAVEGACIÓN
+========================================================= */
+.nav {
+  display: flex;
+  align-items: center;
+  gap: clamp(12px, 1.7vw, 28px);
+}
+.nav-link {
+  position: relative;
+  padding: 8px 0;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 0.73rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: var(--transicion);
+}
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 0;
+  height: 1px;
+  background: var(--dorado);
+  transform: translateX(-50%);
+  transition: width 0.35s ease;
+}
+.nav-link:hover,
+.nav-link.active {
+  color: var(--dorado-claro);
+}
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+/* =========================================================
+   MENÚ MÓVIL
+========================================================= */
+.menu-toggle {
+  display: none;
+  width: 45px;
+  height: 45px;
+  background: transparent;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+.menu-toggle span {
+  width: 25px;
+  height: 2px;
+  background: var(--dorado);
+  transition: var(--transicion);
+}
+.menu-toggle.active span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+.menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+.menu-toggle.active span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* =========================================================
+   BIENVENIDOS
+========================================================= */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: var(--verde-oscuro);
+  color: var(--blanco);
+}
+/* =========================================================
+   IMAGEN DEL HERO
+========================================================= */
+.hero-background {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+}
+.hero-background img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transform: scale(1.05);
+  animation: heroBackground 12s ease-in-out infinite alternate;
+  filter: saturate(1.08) contrast(1.03);
+}
+/* =========================================================
+   DEGRADADO VERDE SOBRE LA IMAGEN
+========================================================= */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(3, 27, 13, 0.94) 0%,
+      rgba(6, 55, 25, 0.88) 18%,
+      rgba(10, 85, 40, 0.72) 38%,
+      rgba(27, 112, 64, 0.52) 58%,
+      rgba(27, 112, 64, 0.34) 78%,
+      rgba(3, 27, 13, 0.25) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(3, 27, 13, 0.28) 0%,
+      rgba(10, 61, 30, 0.12) 42%,
+      rgba(3, 27, 13, 0.72) 100%
+    );
+}
+.hero-background::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 68% 45%,
+    rgba(27, 112, 64, 0.2),
+    transparent 45%
+  );
+  pointer-events: none;
+}
+/* =========================================================
+   ANIMACIÓN DE FONDO
+========================================================= */
+@keyframes heroBackground {
+  from {
+    transform: scale(1.05);
+  }
+  to {
+    transform: scale(1.11);
+  }
+}
+/* =========================================================
+   CONTENIDO HERO
+========================================================= */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding-top: 80px;
+  max-width: 900px;
+}
+.hero-small-title {
+  margin-bottom: 18px;
+  color: var(--dorado-claro);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+}
+.hero-title {
+  display: flex;
+  flex-direction: column;
+  font-family: "Cormorant Garamond", serif;
+  line-height: 0.85;
+  text-shadow: 0 10px 35px rgba(0, 0, 0, 0.35);
+}
+.hero-title span {
+  font-size: clamp(2.5rem, 7vw, 6rem);
+  font-weight: 400;
+  letter-spacing: 0.06em;
+}
+.hero-title strong {
+  margin-left: 0.05em;
+  font-family: "Cinzel", serif;
+  font-size: clamp(3rem, 9vw, 8rem);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--dorado-claro);
+  background: linear-gradient(
+    120deg,
+    var(--dorado-oscuro),
+    var(--dorado-claro),
+    var(--dorado)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.hero-description {
+  max-width: 620px;
+  margin-top: 35px;
+  color: rgba(255, 255, 255, 0.85);
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(1.2rem, 2vw, 1.55rem);
+  line-height: 1.5;
+}
+.hero-decoration {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.hero-decoration span {
+  width: 35px;
+  height: 1px;
+  background: var(--dorado);
+}
+.hero-decoration i {
+  color: var(--dorado);
+  font-size: 8px;
+}
+.hero-buttons {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 38px;
+}
+/* =========================================================
+   BOTONES
+========================================================= */
+.btn {
+  min-height: 52px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  padding: 0 25px;
+  position: relative;
+  overflow: hidden;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    background 0.35s ease,
+    color 0.35s ease;
+}
+.btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.16);
+  transform: skewX(-25deg);
+  transition: left 0.6s ease;
+}
+.btn:hover::before {
+  left: 120%;
+}
+.btn:hover {
+  transform: translateY(-3px);
+}
+.btn-primary {
+  background: var(--dorado);
+  color: var(--verde-oscuro);
+  box-shadow: 0 8px 25px rgba(212, 175, 55, 0.2);
+}
+.btn-primary:hover {
+  background: var(--dorado-claro);
+  box-shadow: 0 14px 35px rgba(212, 175, 55, 0.32);
+}
+.btn-outline {
+  border: 1px solid rgba(241, 215, 122, 0.65);
+  color: var(--blanco);
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(8px);
+}
+.btn-outline:hover {
+  background: var(--dorado);
+  border-color: var(--dorado);
+  color: var(--verde-oscuro);
+}
+/* =========================================================
+   HERO SCROLL
+========================================================= */
+.hero-scroll {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  transform: translateX(-50%);
+  color: rgba(255, 255, 255, 0.8);
+  transition: var(--transicion);
+}
+.hero-scroll:hover {
+  color: var(--dorado-claro);
+}
+.scroll-text {
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+}
+.scroll-line {
+  width: 1px;
+  height: 42px;
+  background: linear-gradient(to bottom, var(--dorado), transparent);
+}
+.hero-scroll i {
+  font-size: 10px;
+  animation: scrollArrow 1.8s infinite;
+}
+@keyframes scrollArrow {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translateY(6px);
+    opacity: 1;
+  }
+}
+/* =========================================================
+   HERO DECORACIONES
+========================================================= */
+.hero-corner {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border-color: rgba(212, 175, 55, 0.45);
+  z-index: 3;
+}
+.hero-corner-left {
+  left: 35px;
+  bottom: 35px;
+  border-left: 1px solid;
+  border-bottom: 1px solid;
+}
+.hero-corner-right {
+  right: 35px;
+  top: 120px;
+  border-right: 1px solid;
+  border-top: 1px solid;
+}
+/* =========================================================
+   SECCIONES
+========================================================= */
+.section {
+  position: relative;
+  padding: 120px 0;
+  overflow: hidden;
+}
+.section-header {
+  max-width: 750px;
+  margin: 0 auto 65px;
+  text-align: center;
+}
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 14px;
+  color: var(--dorado-oscuro);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+.section-label i {
+  font-size: 11px;
+}
+.section-title {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 500;
+  line-height: 1.05;
+  color: var(--verde-oscuro);
+}
+.section-title span {
+  color: var(--verde);
+  font-weight: 700;
+}
+.section-line {
+  width: 65px;
+  height: 1px;
+  margin: 20px auto;
+  position: relative;
+  background: var(--dorado);
+}
+.section-line::before,
+.section-line::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 5px;
+  height: 5px;
+  border: 1px solid var(--dorado);
+  transform: translateY(-50%) rotate(45deg);
+}
+.section-line::before {
+  left: -12px;
+}
+.section-line::after {
+  right: -12px;
+}
+.section-description {
+  max-width: 650px;
+  margin: 0 auto;
+  color: #68736c;
+  font-size: 0.95rem;
+}
+/* =========================================================
+   DISCOVER
+========================================================= */
+.discover-section {
+  background: var(--blanco-suave);
+}
+.discover-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  align-items: center;
+  gap: 80px;
+}
+.discover-content {
+  position: relative;
+}
+.gold-number {
+  display: block;
+  margin-bottom: 10px;
+  color: var(--dorado);
+  font-family: "Cinzel", serif;
+  font-size: 1rem;
+  letter-spacing: 0.15em;
+}
+.discover-content h3 {
+  max-width: 500px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(2.5rem, 4vw, 4rem);
+  line-height: 1.05;
+  color: var(--verde-oscuro);
+}
+.discover-content h3 span {
+  color: var(--verde);
+}
+.discover-content p {
+  margin-top: 22px;
+  color: #647068;
+  font-size: 0.95rem;
+}
+.text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 28px;
+  color: var(--verde);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: var(--transicion);
+}
+.text-link i {
+  color: var(--dorado);
+  transition: transform 0.35s ease;
+}
+.text-link:hover {
+  color: var(--dorado-oscuro);
+}
+.text-link:hover i {
+  transform: translateX(6px);
+}
+.discover-image {
+  position: relative;
+  min-height: 540px;
+}
+.image-frame {
+  position: relative;
+  border-radius: 20px;
+  width: 110%;
+  height: 545px;
+  margin-left: auto;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--verde-medio), var(--verde-oscuro));
+  box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.15);
+}
+.image-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.image-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: rgba(255, 255, 255, 0.45);
+  background: radial-gradient(
+    circle at center,
+    rgba(212, 175, 55, 0.1),
+    transparent 50%
+  );
+}
+.image-placeholder i {
+  font-size: 3rem;
+  color: rgba(212, 175, 55, 0.65);
+}
+.image-placeholder span {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.2rem;
+  letter-spacing: 0.08em;
+}
+.image-decoration {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 110px;
+  height: 110px;
+  border-right: 2px solid var(--dorado);
+  border-bottom: 2px solid var(--dorado);
+}
+/* =========================================================
+   ATRACTIVOS TURÍSTICOS
+   TARJETAS 3D FLIP
+========================================================= */
+.attractions-section {
+  background: var(--verde-oscuro);
+  color: var(--blanco);
+}
+.attractions-section .section-title {
+  color: var(--blanco);
+}
+.attractions-section .section-title span {
+  color: var(--dorado-claro);
+}
+.attractions-section .section-description {
+  color: rgba(255, 255, 255, 0.65);
+}
+.attractions-section .section-label {
+  color: var(--dorado-claro);
+}
+/* =========================================================
+   BUSCADOR DE ATRACTIVOS
+========================================================= */
+.tour-search {
+  width: min(100%, 620px);
+  margin: 0 auto 55px;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.tour-search > i {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--dorado);
+  font-size: 0.95rem;
+  pointer-events: none;
+  z-index: 2;
+}
+.tour-search input {
+  width: 100%;
+  height: 58px;
+  padding: 0 58px 0 52px;
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  outline: none;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.055);
+  color: var(--blanco);
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  backdrop-filter: blur(10px);
+  transition:
+    border-color 0.35s ease,
+    background 0.35s ease,
+    box-shadow 0.35s ease;
+}
+.tour-search input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+.tour-search input:focus {
+  border-color: var(--dorado);
+  background: rgba(255, 255, 255, 0.09);
+  box-shadow:
+    0 0 0 4px rgba(212, 175, 55, 0.08),
+    0 15px 35px rgba(0, 0, 0, 0.18);
+}
+.tour-search-clear {
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(212, 175, 55, 0.12);
+  color: var(--dorado-claro);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(0.8);
+  transition:
+    opacity 0.25s ease,
+    visibility 0.25s ease,
+    transform 0.25s ease,
+    background 0.35s ease,
+    color 0.35s ease;
+}
+.tour-search-clear.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+}
+.tour-search-clear:hover {
+  background: var(--dorado);
+  color: var(--verde-oscuro);
+  transform: scale(1) rotate(90deg);
+}
+/* =========================================================
+   GRID DE TARJETAS
+========================================================= */
+.attractions-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  perspective: 1600px;
+  align-items: stretch;
+}
+/* =========================================================
+   TARJETA FLIP
+========================================================= */
+.tour-card {
+  position: relative;
+  width: 100%;
+  min-height: 500px;
+  background: transparent;
+  border: none;
+  perspective: 1400px;
+  cursor: pointer;
+  outline: none;
+  opacity: 1;
+  transition:
+    transform 0.4s ease,
+    opacity 0.4s ease;
+}
+.tour-card:hover {
+  transform: translateY(-8px);
+}
+.tour-card:focus-visible {
+  outline: 2px solid var(--dorado);
+  outline-offset: 6px;
+}
+/* =========================================================
+   CONTENEDOR INTERNO QUE GIRA
+========================================================= */
+.tour-card-inner {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  transition: transform 0.8s cubic-bezier(0.2, 0.75, 0.25, 1);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.3);
+}
+/* =========================================================
+   GIRO DE LA TARJETA
+========================================================= */
+.tour-card.flipped .tour-card-inner {
+  transform: rotateY(180deg);
+}
+/* =========================================================
+   CARAS DE LA TARJETA
+========================================================= */
+.tour-card-front,
+.tour-card-back {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  border-radius: 8px;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+}
+/* =========================================================
+   IMPORTANTE:
+   EVITA QUE LA CARA INVISIBLE BLOQUEE LOS BOTONES
+========================================================= */
+.tour-card-front,
+.tour-card-back {
+  pointer-events: none;
+}
+.tour-card:not(.flipped) .tour-card-front {
+  pointer-events: auto;
+}
+.tour-card.flipped .tour-card-back {
+  pointer-events: auto;
+}
+/* =========================================================
+   FRENTE
+========================================================= */
+.tour-card-front {
+  z-index: 2;
+  transform: rotateY(0deg);
+  background: var(--verde-medio);
+}
+/* =========================================================
+   PARTE TRASERA
+========================================================= */
+.tour-card-back {
+  z-index: 1;
+  transform: rotateY(180deg);
+  padding: 30px 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background:
+    radial-gradient(
+      circle at 85% 10%,
+      rgba(212, 175, 55, 0.15),
+      transparent 30%
+    ),
+    linear-gradient(145deg, #0f4c27, var(--verde-oscuro));
+  color: var(--blanco);
+  isolation: isolate;
+}
+/* =========================================================
+   CONTROL DE CAPAS AL GIRAR
+========================================================= */
+.tour-card.flipped .tour-card-front {
+  z-index: 1;
+}
+.tour-card.flipped .tour-card-back {
+  z-index: 2;
+}
+/* =========================================================
+   IMAGEN
+========================================================= */
+.tour-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.tour-image img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition:
+    transform 0.8s ease,
+    filter 0.8s ease;
+}
+.tour-card:hover .tour-image img {
+  transform: scale(1.08);
+  filter: saturate(1.08) contrast(1.04);
+}
+/* =========================================================
+   OSCURECIMIENTO DE LA IMAGEN
+========================================================= */
+.tour-image-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    to bottom,
+    rgba(3, 27, 13, 0.05) 10%,
+    rgba(3, 27, 13, 0.16) 35%,
+    rgba(3, 27, 13, 0.88) 100%
+  );
+  pointer-events: none;
+}
+/* =========================================================
+   CONTENIDO DEL FRENTE
+========================================================= */
+.tour-front-content {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 3;
+  padding: 30px 25px;
+  color: var(--blanco);
+}
+.tour-number {
+  display: block;
+  margin-bottom: 9px;
+  color: var(--dorado-claro);
+  font-family: "Cinzel", serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+}
+.tour-front-content h3 {
+  color: var(--blanco);
+  font-family: "Cormorant Garamond", serif;
+  font-size: 2rem;
+  line-height: 1;
+  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+.tour-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 18px;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  transition:
+    color 0.35s ease,
+    transform 0.35s ease;
+}
+.tour-more i {
+  color: var(--dorado);
+  transition: transform 0.4s ease;
+}
+.tour-card:hover .tour-more {
+  color: var(--dorado-claro);
+}
+.tour-card:hover .tour-more i {
+  transform: rotate(180deg);
+}
+/* =========================================================
+   DECORACIÓN TRASERA
+========================================================= */
+.tour-card-back::before {
+  content: "";
+  position: absolute;
+  width: 170px;
+  height: 170px;
+  right: -85px;
+  top: -85px;
+  border: 1px solid rgba(212, 175, 55, 0.18);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: -1;
+}
+.tour-card-back::after {
+  content: "";
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  right: -50px;
+  top: -50px;
+  border: 1px solid rgba(212, 175, 55, 0.13);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: -1;
+}
+/* =========================================================
+   CATEGORÍA TRASERA
+========================================================= */
+.tour-back-category {
+  position: relative;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  align-self: flex-start;
+  padding: 7px 11px;
+  border: 1px solid rgba(212, 175, 55, 0.38);
+  background: rgba(0, 0, 0, 0.12);
+  color: var(--dorado-claro);
+  font-size: 0.57rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.tour-back-category i {
+  font-size: 0.7rem;
+}
+/* =========================================================
+   TÍTULO Y DESCRIPCIÓN TRASERA
+========================================================= */
+.tour-card-back h3 {
+  position: relative;
+  z-index: 2;
+  margin-top: 20px;
+  color: var(--dorado-claro);
+  font-family: "Cormorant Garamond", serif;
+  font-size: 2rem;
+  line-height: 1.05;
+}
+.tour-card-back p {
+  position: relative;
+  z-index: 2;
+  margin-top: 15px;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.76rem;
+  line-height: 1.7;
+}
+/* =========================================================
+   BOTONES GOOGLE MAPS
+========================================================= */
+.tour-buttons {
+  position: relative;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  margin-top: auto;
+  padding-top: 20px;
+  pointer-events: auto;
+}
+.tour-btn {
+  position: relative;
+  z-index: 25;
+  width: 100%;
+  min-height: 43px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 10px 12px;
+  border: 1px solid rgba(212, 175, 55, 0.5);
+  color: var(--dorado-claro);
+  background: rgba(255, 255, 255, 0.04);
+  font-size: 0.59rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  pointer-events: auto;
+  transition:
+    background 0.35s ease,
+    border-color 0.35s ease,
+    color 0.35s ease,
+    transform 0.35s ease;
+}
+.tour-btn i {
+  font-size: 0.75rem;
+  pointer-events: none;
+}
+.tour-btn:hover {
+  background: var(--dorado);
+  border-color: var(--dorado);
+  color: var(--verde-oscuro);
+  transform: translateY(-2px);
+}
+.tour-btn-map {
+  background: var(--dorado);
+  border-color: var(--dorado);
+  color: var(--verde-oscuro);
+}
+.tour-btn-map:hover {
+  background: var(--dorado-claro);
+  border-color: var(--dorado-claro);
+}
+/* =========================================================
+   INDICACIÓN PARA VOLVER
+========================================================= */
+.tour-flip-hint {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  margin-top: 12px;
+  color: rgba(255, 255, 255, 0.48);
+  font-size: 0.56rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+}
+.tour-card-back:hover .tour-flip-hint {
+  color: var(--dorado-claro);
+}
+/* =========================================================
+   TARJETAS OCULTAS POR BÚSQUEDA
+========================================================= */
+.tour-card.search-hidden {
+  display: none;
+}
+/* =========================================================
+   MENSAJE SIN RESULTADOS
+========================================================= */
+.no-tour-results {
+  display: none;
+  width: 100%;
+  margin-top: 30px;
+  padding: 50px 25px;
+  text-align: center;
+  border: 1px solid rgba(212, 175, 55, 0.18);
+  background: rgba(255, 255, 255, 0.03);
+  color: rgba(255, 255, 255, 0.7);
+}
+.no-tour-results i {
+  display: block;
+  margin-bottom: 15px;
+  color: var(--dorado);
+  font-size: 2rem;
+}
+.no-tour-results h3 {
+  color: var(--blanco);
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.8rem;
+}
+.no-tour-results p {
+  margin-top: 5px;
+  font-size: 0.75rem;
+}
+/* =========================================================
+   GASTRONOMÍA DE BETANZOS
+========================================================= */
+.gastronomy-section {
+  background: var(--blanco);
+  color: var(--negro);
+}
+.gastronomy-section .section-title {
+  color: var(--verde-oscuro);
+}
+.gastronomy-section .section-title span {
+  color: var(--verde);
+}
+.gastronomy-section .section-description {
+  color: #68736c;
+}
+.gastronomy-list {
+  display: flex;
+  flex-direction: column;
+  gap: 105px;
+  margin-top: 70px;
+}
+.gastronomy-item {
+  position: relative;
+  display: grid;
+  grid-template-columns:
+    90px
+    minmax(280px, 1fr)
+    minmax(300px, 1fr);
+  align-items: center;
+  gap: 50px;
+  min-height: 360px;
+}
+.gastronomy-item.reverse {
+  grid-template-columns:
+    90px
+    minmax(300px, 1fr)
+    minmax(280px, 1fr);
+}
+.gastronomy-item.reverse .gastronomy-image {
+  order: 3;
+}
+.gastronomy-item.reverse .gastronomy-content {
+  order: 2;
+}
+.gastronomy-number {
+  align-self: center;
+  font-family: "Cinzel", serif;
+  font-size: 4rem;
+  font-weight: 600;
+  color: rgba(10, 61, 30, 0.12);
+  line-height: 1;
+  transition:
+    color 0.5s ease,
+    transform 0.5s ease;
+}
+.gastronomy-item:hover .gastronomy-number {
+  color: rgba(168, 134, 32, 0.28);
+  transform: translateY(-5px);
+}
+/* =========================================================
+   IMAGEN GASTRONOMÍA
+========================================================= */
+.gastronomy-image {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 340px;
+}
+.gastronomy-image::before {
+  content: "";
+  position: absolute;
+  width: 75%;
+  height: 75%;
+  border-radius: 50%;
+  background: rgba(212, 175, 55, 0.12);
+  filter: blur(18px);
+  transform: translateY(12px);
+  transition:
+    transform 0.6s ease,
+    opacity 0.6s ease;
+}
+.gastronomy-image::after {
+  content: "";
+  position: absolute;
+  width: 88%;
+  height: 88%;
+  border: 1px solid rgba(212, 175, 55, 0.18);
+  border-radius: 50%;
+  transform: rotate(-8deg);
+  transition:
+    transform 0.8s ease,
+    border-color 0.6s ease;
+}
+.gastronomy-image img {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 500px;
+  height: 340px;
+  object-fit: cover;
+  border-radius: 46% 54% 50% 50%;
+  filter: drop-shadow(0 25px 30px rgba(0, 0, 0, 0.18));
+  transition:
+    transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1),
+    filter 0.7s ease;
+}
+.gastronomy-item.reverse .gastronomy-image img {
+  border-radius: 54% 46% 50% 50%;
+}
+.gastronomy-item:hover .gastronomy-image::before,
+.gastronomy-item.gastronomy-hover .gastronomy-image::before {
+  transform: translateY(20px) scale(1.05);
+  opacity: 0.9;
+}
+.gastronomy-item:hover .gastronomy-image::after,
+.gastronomy-item.gastronomy-hover .gastronomy-image::after {
+  transform: rotate(3deg) scale(1.04);
+  border-color: rgba(212, 175, 55, 0.35);
+}
+.gastronomy-item:hover .gastronomy-image img,
+.gastronomy-item.gastronomy-hover .gastronomy-image img {
+  transform: translateY(-10px) scale(1.025) rotate(-1deg);
+  filter: drop-shadow(0 34px 38px rgba(0, 0, 0, 0.23));
+}
+.gastronomy-item.reverse:hover .gastronomy-image img,
+.gastronomy-item.reverse.gastronomy-hover .gastronomy-image img {
+  transform: translateY(-10px) scale(1.025) rotate(1deg);
+}
+/* =========================================================
+   CONTENIDO GASTRONOMÍA
+========================================================= */
+.gastronomy-content {
+  max-width: 560px;
+  padding: 20px 0;
+}
+.gastronomy-category {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: var(--dorado-oscuro);
+}
+.gastronomy-category i {
+  font-size: 0.9rem;
+}
+.gastronomy-content h3 {
+  margin: 14px 0 12px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
+  line-height: 1;
+  font-weight: 600;
+  color: var(--verde-oscuro);
+}
+.gastronomy-line {
+  width: 70px;
+  height: 2px;
+  background: var(--dorado);
+  margin: 0 0 20px;
+  transition: width 0.5s ease;
+}
+.gastronomy-item:hover .gastronomy-line,
+.gastronomy-item.gastronomy-hover .gastronomy-line {
+  width: 120px;
+}
+.gastronomy-content p {
+  margin: 0;
+  max-width: 520px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.9;
+  color: #647069;
+}
+/* =========================================================
+   EXPERIENCIAS
+========================================================= */
+.experiences-section {
+  background: var(--blanco-suave);
+}
+.experiences-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid rgba(10, 61, 30, 0.12);
+  border-left: 1px solid rgba(10, 61, 30, 0.12);
+}
+.experience-item {
+  padding: 45px 35px;
+  border-right: 1px solid rgba(10, 61, 30, 0.12);
+  border-bottom: 1px solid rgba(10, 61, 30, 0.12);
+  text-align: center;
+  transition:
+    background 0.4s ease,
+    transform 0.4s ease;
+}
+.experience-item:hover {
+  background: var(--blanco);
+  transform: translateY(-5px);
+}
+.experience-icon {
+  width: 70px;
+  height: 70px;
+  margin: 0 auto 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--dorado);
+  color: var(--verde);
+  font-size: 1.5rem;
+  transform: rotate(45deg);
+  transition: var(--transicion);
+}
+.experience-icon i {
+  transform: rotate(-45deg);
+}
+.experience-item:hover .experience-icon {
+  background: var(--verde);
+  color: var(--dorado-claro);
+  box-shadow: 0 10px 25px rgba(10, 61, 30, 0.18);
+}
+.experience-item h3 {
+  margin-top: 25px;
+  color: var(--verde-oscuro);
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.8rem;
+}
+.experience-item p {
+  max-width: 260px;
+  margin: 8px auto 0;
+  color: #68736c;
+  font-size: 0.8rem;
+}
+/* =========================================================
+   PLANIFICA TU VISITA
+========================================================= */
+.planning-section {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(
+    135deg,
+    #031b0d 0%,
+    #0a3d1e 48%,
+    #061f10 100%
+  ) !important;
+  color: #ffffff;
+}
+/* =========================================================
+   FONDO DECORATIVO
+========================================================= */
+.planning-background {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.planning-background::before {
+  content: "";
+  position: absolute;
+  width: 520px;
+  height: 520px;
+  top: -250px;
+  right: -180px;
+  border-radius: 50%;
+  background: rgba(212, 175, 55, 0.08);
+  filter: blur(2px);
+}
+.planning-background::after {
+  content: "";
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  bottom: -240px;
+  left: -180px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.035);
+}
+/* =========================================================
+   CONTENEDOR
+========================================================= */
+.planning-section .container {
+  position: relative;
+  z-index: 2;
+}
+/* =========================================================
+   ENCABEZADO
+========================================================= */
+.planning-section .section-header {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+/* ETIQUETA */
+.planning-section .section-label {
+  color: var(--dorado-claro);
+}
+/* TÍTULO */
+.planning-section .section-title {
+  color: #ffffff !important;
+}
+.planning-section .section-title span {
+  color: var(--dorado-claro) !important;
+}
+/* LÍNEA */
+.planning-section .section-line {
+  background: linear-gradient(90deg, transparent, var(--dorado), transparent);
+}
+/* DESCRIPCIÓN */
+.planning-section .section-description {
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
+  color: rgba(255, 255, 255, 0.78) !important;
+}
+/* =========================================================
+   GRID DE TARJETAS
+========================================================= */
+.planning-grid {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
+  margin-top: 65px;
+}
+/* =========================================================
+   TARJETA
+========================================================= */
+.planning-card {
+  position: relative;
+  min-height: 330px;
+  padding: 38px 32px 34px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.98);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  transition:
+    transform 0.45s ease,
+    box-shadow 0.45s ease,
+    border-color 0.45s ease;
+}
+/* LÍNEA SUPERIOR */
+.planning-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--verde), var(--dorado));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.45s ease;
+}
+/* CÍRCULO DECORATIVO */
+.planning-card::after {
+  content: "";
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  right: -85px;
+  bottom: -85px;
+  border-radius: 50%;
+  background: rgba(10, 61, 30, 0.045);
+  transition:
+    transform 0.5s ease,
+    background 0.5s ease;
+}
+/* =========================================================
+   HOVER TARJETA
+========================================================= */
+.planning-card:hover {
+  transform: translateY(-10px);
+  border-color: rgba(212, 175, 55, 0.55);
+  box-shadow: 0 30px 65px rgba(0, 0, 0, 0.3);
+}
+.planning-card:hover::before {
+  transform: scaleX(1);
+}
+.planning-card:hover::after {
+  transform: scale(1.5);
+  background: rgba(212, 175, 55, 0.08);
+}
+/* =========================================================
+   ICONO
+========================================================= */
+.planning-card-icon {
+  position: relative;
+  z-index: 2;
+  width: 66px;
+  height: 66px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+  border-radius: 50%;
+  background: rgba(10, 61, 30, 0.08);
+  color: var(--verde);
+  font-size: 1.45rem;
+  transition:
+    transform 0.45s ease,
+    background 0.45s ease,
+    color 0.45s ease;
+}
+.planning-card:hover .planning-card-icon {
+  transform: translateY(-4px) rotate(-5deg);
+  background: var(--verde);
+  color: var(--dorado-claro);
+}
+/* =========================================================
+   NÚMERO
+========================================================= */
+.planning-card-number {
+  position: absolute;
+  top: 28px;
+  right: 28px;
+  font-family: "Cinzel", serif;
+  font-size: 2.5rem;
+  line-height: 1;
+  color: rgba(10, 61, 30, 0.1);
+  transition: color 0.4s ease;
+}
+.planning-card:hover .planning-card-number {
+  color: rgba(212, 175, 55, 0.35);
+}
+/* =========================================================
+   TÍTULO TARJETA
+========================================================= */
+.planning-card h3 {
+  position: relative;
+  z-index: 2;
+  margin: 0 0 14px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 2.2rem;
+  line-height: 1;
+  font-weight: 600;
+  color: var(--verde-oscuro);
+}
+/* =========================================================
+   DESCRIPCIÓN TARJETA
+========================================================= */
+.planning-card p {
+  position: relative;
+  z-index: 2;
+  margin: 0 0 26px;
+  max-width: 330px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.86rem;
+  line-height: 1.8;
+  color: #68736c;
+}
+/* =========================================================
+   ENLACE VISUAL
+========================================================= */
+.planning-card-link {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--verde);
+  transition:
+    gap 0.35s ease,
+    color 0.35s ease;
+}
+.planning-card:hover .planning-card-link {
+  gap: 16px;
+  color: var(--dorado-oscuro);
+}
+/* =========================================================
+   MODAL
+========================================================= */
+.planning-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 25px;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    opacity 0.35s ease,
+    visibility 0.35s ease;
+}
+.planning-modal.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+/* =========================================================
+   FONDO DEL MODAL
+========================================================= */
+.planning-modal-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(3, 27, 13, 0.8);
+  backdrop-filter: blur(8px);
+}
+/* =========================================================
+   CONTENIDO DEL MODAL
+========================================================= */
+.planning-modal-content {
+  position: relative;
+  z-index: 2;
+  width: min(900px, 100%);
+  max-height: 85vh;
+  overflow-y: auto;
+  padding: 42px;
+  background: #ffffff;
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.35);
+  transform: translateY(25px) scale(0.97);
+  transition: transform 0.4s ease;
+}
+.planning-modal.active .planning-modal-content {
+  transform: translateY(0) scale(1);
+}
+/* =========================================================
+   SCROLL DEL MODAL
+========================================================= */
+.planning-modal-content::-webkit-scrollbar {
+  width: 6px;
+}
+.planning-modal-content::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+.planning-modal-content::-webkit-scrollbar-thumb {
+  background: var(--verde);
+  border-radius: 10px;
+}
+/* =========================================================
+   BOTÓN CERRAR
+========================================================= */
+.planning-modal-close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 50%;
+  background: rgba(10, 61, 30, 0.07);
+  color: var(--verde);
+  font-size: 1.15rem;
+  cursor: pointer;
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease,
+    color 0.3s ease;
+}
+.planning-modal-close:hover {
+  transform: rotate(90deg);
+  background: var(--verde);
+  color: #ffffff;
+}
+/* =========================================================
+   CABECERA DEL MODAL
+========================================================= */
+.planning-modal-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding-right: 50px;
+  margin-bottom: 30px;
+  padding-bottom: 25px;
+  border-bottom: 1px solid rgba(10, 61, 30, 0.1);
+}
+/* ICONO PRINCIPAL */
+.planning-modal-icon {
+  flex-shrink: 0;
+  width: 65px;
+  height: 65px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--verde);
+  color: var(--dorado-claro);
+  font-size: 1.4rem;
+}
+/* ETIQUETA */
+.planning-modal-label {
+  display: block;
+  margin-bottom: 6px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: var(--dorado-oscuro);
+}
+/* TÍTULO MODAL */
+.planning-modal-header h3 {
+  margin: 0;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 2.8rem;
+  line-height: 1;
+  color: var(--verde-oscuro);
+}
+/* =========================================================
+   LISTA DE ESTABLECIMIENTOS
+========================================================= */
+.planning-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+/* =========================================================
+   ITEM DEL ESTABLECIMIENTO
+========================================================= */
+.planning-list-item {
+  display: grid;
+  grid-template-columns: 110px 55px 1fr auto;
+  align-items: center;
+  gap: 18px;
+  padding: 16px;
+  background: #f7f8f6;
+  border: 1px solid rgba(10, 61, 30, 0.08);
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+/* HOVER */
+.planning-list-item:hover {
+  transform: translateX(5px);
+  background: #ffffff;
+  border-color: rgba(212, 175, 55, 0.45);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
+}
+/* =========================================================
+   FOTO DEL ESTABLECIMIENTO
+========================================================= */
+.planning-list-item-image {
+  position: relative;
+  width: 110px;
+  height: 82px;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #e9ece9;
+  flex-shrink: 0;
+}
+.planning-list-item-image img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+.planning-list-item:hover .planning-list-item-image img {
+  transform: scale(1.08);
+}
+/* =========================================================
+   ICONO DEL ESTABLECIMIENTO
+========================================================= */
+.planning-list-item-icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(10, 61, 30, 0.08);
+  color: var(--verde);
+}
+/* =========================================================
+   NOMBRE
+========================================================= */
+.planning-list-item h4 {
+  margin: 0 0 8px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.55rem;
+  line-height: 1.05;
+  color: var(--verde-oscuro);
+}
+/* =========================================================
+   DATOS
+========================================================= */
+.planning-list-data {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+}
+.planning-list-data span {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.72rem;
+  line-height: 1.5;
+  color: #68736c;
+}
+.planning-list-data i {
+  color: var(--dorado-oscuro);
+}
+/* =========================================================
+   BOTÓN TELÉFONO
+========================================================= */
+.planning-list-phone {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 30px;
+  background: rgba(10, 61, 30, 0.07);
+  color: var(--verde);
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+.planning-list-phone:hover {
+  background: var(--verde);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+/* =========================================================
+   BOTÓN GOOGLE MAPS
+========================================================= */
+.planning-list-map {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 30px;
+  background: rgba(212, 175, 55, 0.12);
+  color: var(--dorado-oscuro);
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+.planning-list-map:hover {
+  background: var(--dorado);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+/* =========================================================
+   BOTONES DEL ITEM
+========================================================= */
+.planning-list-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+/* =========================================================
+   ESTADO SIN INFORMACIÓN
+========================================================= */
+.planning-empty {
+  padding: 35px 20px;
+  text-align: center;
+  background: #f7f8f6;
+  color: #68736c;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.85rem;
+}
+.planning-empty i {
+  display: block;
+  margin-bottom: 12px;
+  font-size: 2rem;
+  color: var(--dorado);
+}
+/* =========================================================
+   RESPONSIVE - TABLET
+========================================================= */
+@media (max-width: 1000px) {
+  .planning-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .planning-list-item {
+    grid-template-columns: 100px 50px 1fr;
+  }
+  .planning-list-actions {
+    grid-column: 3;
+    justify-content: flex-start;
+  }
+}
+/* =========================================================
+   RESPONSIVE - CELULAR
+========================================================= */
+@media (max-width: 650px) {
+  .planning-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin-top: 45px;
+  }
+  .planning-card {
+    min-height: auto;
+    padding: 30px 25px;
+  }
+  .planning-card-number {
+    top: 25px;
+    right: 24px;
+    font-size: 2rem;
+  }
+  /* MODAL */
+  .planning-modal {
+    padding: 10px;
+  }
+  .planning-modal-content {
+    width: 100%;
+    max-height: 94vh;
+    padding: 28px 18px;
+  }
+  .planning-modal-header {
+    align-items: flex-start;
+    gap: 14px;
+    padding-right: 35px;
+  }
+  .planning-modal-icon {
+    width: 52px;
+    height: 52px;
+    font-size: 1.1rem;
+  }
+  .planning-modal-header h3 {
+    font-size: 2.2rem;
+  }
+  /* ITEM */
+  .planning-list-item {
+    grid-template-columns: 85px 1fr;
+    gap: 14px;
+    padding: 14px;
+  }
+  /* FOTO */
+  .planning-list-item-image {
+    width: 85px;
+    height: 70px;
+    grid-row: span 2;
+  }
+  /* ICONO */
+  .planning-list-item-icon {
+    display: none;
+  }
+  /* DATOS */
+  .planning-list-data {
+    flex-direction: column;
+    gap: 7px;
+  }
+  /* BOTONES */
+  .planning-list-actions {
+    grid-column: 2;
+    justify-content: flex-start;
+  }
+  .planning-list-phone,
+  .planning-list-map {
+    padding: 9px 12px;
+    font-size: 0.65rem;
+  }
+}
+/* =========================================================
+   CELULARES MUY PEQUEÑOS
+========================================================= */
+@media (max-width: 400px) {
+  .planning-modal-content {
+    padding: 25px 14px;
+  }
+  .planning-list-item {
+    grid-template-columns: 75px 1fr;
+  }
+  .planning-list-item-image {
+    width: 75px;
+    height: 65px;
+  }
+  .planning-list-item h4 {
+    font-size: 1.35rem;
+  }
+}
+/* ============================================================
+   AGENDA TURÍSTICA
+   RUEDA DE FESTIVIDADES DE BETANZOS
+============================================================ */
+/* ============================================================
+   AGENDA TURÍSTICA
+   RUEDA DE FESTIVIDADES DE BETANZOS
+============================================================ */
+.events-section {
+  position: relative;
+  background: #ffffff;
+  overflow: hidden;
+}
+/* ============================================================
+   CONTENEDOR PRINCIPAL
+   RUEDA IZQUIERDA + INFORMACIÓN DERECHA
+============================================================ */
+.festividades-wrapper {
+  width: 100%;
+  max-width: 1200px;
+  margin: 70px auto 0;
+  display: grid;
+  grid-template-columns: minmax(480px, 1fr) minmax(420px, 1fr);
+  align-items: center;
+  gap: 70px;
+}
+/* ============================================================
+   RUEDA DE MESES
+============================================================ */
+.festividades-wheel {
+  position: relative;
+  width: min(600px, 100%);
+  aspect-ratio: 1 / 1;
+  margin: 0 auto;
+}
+/* ============================================================
+   ANILLOS DECORATIVOS
+============================================================ */
+.wheel-ring {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+.wheel-ring-outer {
+  inset: 5%;
+  border: 1px solid rgba(212, 175, 55, 0.45);
+}
+.wheel-ring-inner {
+  inset: 17%;
+  border: 1px solid rgba(10, 61, 30, 0.18);
+}
+/* ============================================================
+   CENTRO DE LA RUEDA
+============================================================ */
+.wheel-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 245px;
+  height: 245px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at center,
+    #12552c 0%,
+    #0a3d1e 65%,
+    #031b0d 100%
+  );
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-shadow:
+    0 20px 50px rgba(3, 27, 13, 0.2),
+    inset 0 0 0 1px rgba(241, 215, 122, 0.3);
+  z-index: 5;
+}
+.wheel-center::before {
+  content: "";
+  position: absolute;
+  inset: 12px;
+  border-radius: 50%;
+  border: 1px solid rgba(241, 215, 122, 0.35);
+  pointer-events: none;
+}
+.wheel-center-small {
+  position: relative;
+  font-family: "Montserrat", sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  color: #f1d77a;
+  margin-bottom: 10px;
+}
+.wheel-center h3 {
+  position: relative;
+  margin: 0;
+  font-family: "Cinzel", serif;
+  font-size: 30px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  color: #ffffff;
+}
+.wheel-center-line {
+  position: relative;
+  width: 45px;
+  height: 1px;
+  background: #d4af37;
+  margin: 14px 0;
+}
+.wheel-center p {
+  position: relative;
+  margin: 0;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 18px;
+  font-style: italic;
+  color: #f1d77a;
+}
+/* ============================================================
+   MESES
+============================================================ */
+.wheel-month {
+  position: absolute;
+  width: 105px;
+  min-height: 70px;
+  padding: 8px;
+  border: none;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-family: "Montserrat", sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  color: #0a3d1e;
+  transition:
+    transform 0.35s ease,
+    color 0.35s ease;
+  z-index: 8;
+}
+.wheel-month span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  margin-bottom: 7px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1px solid rgba(212, 175, 55, 0.55);
+  color: #0a3d1e;
+  font-size: 11px;
+  transition:
+    background 0.35s ease,
+    color 0.35s ease,
+    border-color 0.35s ease,
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+/* ============================================================
+   HOVER
+============================================================ */
+.wheel-month:hover {
+  transform: scale(1.08);
+  color: #b08c19;
+}
+.wheel-month:hover span {
+  transform: scale(1.08);
+  border-color: #d4af37;
+  box-shadow: 0 8px 20px rgba(212, 175, 55, 0.18);
+}
+/* ============================================================
+   MES ACTIVO
+============================================================ */
+.wheel-month.active {
+  color: #b08c19;
+}
+.wheel-month.active span {
+  background: #d4af37;
+  border-color: #d4af37;
+  color: #ffffff;
+  box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
+  transform: scale(1.12);
+}
+/* ============================================================
+   POSICIONES DE LOS 12 MESES
+   USAMOS .wheel-month + nth-of-type
+============================================================ */
+.wheel-month[data-month="enero"] {
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.wheel-month[data-month="febrero"] {
+  top: 7%;
+  right: 13%;
+}
+.wheel-month[data-month="marzo"] {
+  top: 25%;
+  right: 0;
+}
+.wheel-month[data-month="abril"] {
+  top: 46%;
+  right: -2%;
+}
+.wheel-month[data-month="mayo"] {
+  bottom: 18%;
+  right: 6%;
+}
+.wheel-month[data-month="junio"] {
+  bottom: 3%;
+  right: 24%;
+}
+.wheel-month[data-month="julio"] {
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.wheel-month[data-month="agosto"] {
+  bottom: 3%;
+  left: 24%;
+}
+.wheel-month[data-month="septiembre"] {
+  bottom: 18%;
+  left: 6%;
+}
+.wheel-month[data-month="octubre"] {
+  top: 46%;
+  left: -2%;
+}
+.wheel-month[data-month="noviembre"] {
+  top: 25%;
+  left: 0;
+}
+.wheel-month[data-month="diciembre"] {
+  top: 7%;
+  left: 13%;
+}
+/* ============================================================
+   INFORMACIÓN DEL MES
+============================================================ */
+.month-events-container {
+  width: 100%;
+  position: relative;
+  min-height: 300px;
+}
+.month-events {
+  display: none;
+  width: 100%;
+  animation: monthReveal 0.55s ease both;
+}
+.month-events.active {
+  display: block;
+}
+@keyframes monthReveal {
+  from {
+    opacity: 0;
+    transform: translateX(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+/* ============================================================
+   ENCABEZADO DEL MES
+============================================================ */
+.month-events-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(10, 61, 30, 0.12);
+}
+.month-events-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  height: 70px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: #0a3d1e;
+  color: #f1d77a;
+  font-family: "Cinzel", serif;
+  font-size: 22px;
+  box-shadow: 0 10px 25px rgba(10, 61, 30, 0.15);
+}
+.month-events-label {
+  display: block;
+  margin-bottom: 3px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: #b08c19;
+}
+.month-events-header h3 {
+  margin: 0;
+  font-family: "Cinzel", serif;
+  font-size: 34px;
+  font-weight: 600;
+  color: #0a3d1e;
+}
+/* ============================================================
+   LISTA DE FESTIVIDADES
+============================================================ */
+.festivity-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  max-height: 520px;
+  overflow-y: auto;
+  padding-right: 8px;
+}
+/* ============================================================
+   SCROLL DE FESTIVIDADES
+============================================================ */
+.festivity-grid::-webkit-scrollbar {
+  width: 5px;
+}
+.festivity-grid::-webkit-scrollbar-track {
+  background: rgba(10, 61, 30, 0.05);
+  border-radius: 10px;
+}
+.festivity-grid::-webkit-scrollbar-thumb {
+  background: #d4af37;
+  border-radius: 10px;
+}
+/* ============================================================
+   TARJETA DE FESTIVIDAD
+============================================================ */
+.festivity-card {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 20px;
+  background: #ffffff;
+  border: 1px solid rgba(10, 61, 30, 0.1);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(3, 27, 13, 0.06);
+  overflow: hidden;
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+}
+.festivity-card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: #d4af37;
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 0.35s ease;
+}
+.festivity-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(212, 175, 55, 0.45);
+  box-shadow: 0 18px 35px rgba(3, 27, 13, 0.1);
+}
+.festivity-card:hover::before {
+  transform: scaleY(1);
+}
+/* ============================================================
+   ICONO
+============================================================ */
+.festivity-icon {
+  width: 50px;
+  height: 50px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(212, 175, 55, 0.1);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  color: #b08c19;
+  font-size: 17px;
+  transition:
+    transform 0.35s ease,
+    background 0.35s ease;
+}
+.festivity-card:hover .festivity-icon {
+  transform: rotate(8deg) scale(1.08);
+  background: #d4af37;
+  color: #ffffff;
+}
+/* ============================================================
+   CONTENIDO
+============================================================ */
+.festivity-info {
+  flex: 1;
+}
+.festivity-date {
+  display: block;
+  margin-bottom: 5px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #b08c19;
+}
+.festivity-info h4 {
+  margin: 0 0 7px;
+  font-family: "Cinzel", serif;
+  font-size: 19px;
+  font-weight: 600;
+  color: #0a3d1e;
+}
+.festivity-info p {
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+  font-size: 12px;
+  line-height: 1.65;
+  color: #56645b;
+}
+/* ============================================================
+   DECORACIÓN DE FONDO
+============================================================ */
+.events-section::before {
+  content: "";
+  position: absolute;
+  width: 350px;
+  height: 350px;
+  top: 100px;
+  left: -220px;
+  border-radius: 50%;
+  border: 1px solid rgba(212, 175, 55, 0.1);
+  pointer-events: none;
+}
+.events-section::after {
+  content: "";
+  position: absolute;
+  width: 280px;
+  height: 280px;
+  bottom: 100px;
+  right: -170px;
+  border-radius: 50%;
+  border: 1px solid rgba(10, 61, 30, 0.08);
+  pointer-events: none;
+}
+/* ============================================================
+   TABLET
+============================================================ */
+@media (max-width: 1050px) {
+  .festividades-wrapper {
+    grid-template-columns:
+      minmax(420px, 1fr)
+      minmax(350px, 1fr);
+    gap: 35px;
+  }
+  .festividades-wheel {
+    width: 100%;
+  }
+  .wheel-center {
+    width: 210px;
+    height: 210px;
+  }
+  .wheel-center h3 {
+    font-size: 25px;
+  }
+  .wheel-month {
+    width: 90px;
+    font-size: 9px;
+  }
+  .wheel-month span {
+    width: 34px;
+    height: 34px;
+  }
+  .month-events-header h3 {
+    font-size: 29px;
+  }
+}
+/* ============================================================
+   TABLET VERTICAL
+============================================================ */
+@media (max-width: 850px) {
+  .festividades-wrapper {
+    grid-template-columns: 1fr;
+    gap: 45px;
+    max-width: 650px;
+  }
+  .festividades-wheel {
+    width: min(600px, 100%);
+  }
+  .month-events-container {
+    width: 100%;
+  }
+  .festivity-grid {
+    max-height: none;
+    overflow: visible;
+  }
+}
+/* ============================================================
+   CELULAR
+============================================================ */
+@media (max-width: 600px) {
+  .festividades-wrapper {
+    margin-top: 45px;
+    gap: 40px;
+  }
+  .festividades-wheel {
+    width: 100%;
+    max-width: 430px;
+    margin: 0 auto;
+  }
+  .wheel-ring-outer {
+    inset: 7%;
+  }
+  .wheel-ring-inner {
+    inset: 20%;
+  }
+  .wheel-center {
+    width: 155px;
+    height: 155px;
+  }
+  .wheel-center::before {
+    inset: 8px;
+  }
+  .wheel-center-small {
+    font-size: 7px;
+    letter-spacing: 2px;
+    margin-bottom: 5px;
+  }
+  .wheel-center h3 {
+    font-size: 19px;
+    letter-spacing: 1px;
+  }
+  .wheel-center-line {
+    width: 30px;
+    margin: 8px 0;
+  }
+  .wheel-center p {
+    font-size: 14px;
+  }
+  .wheel-month {
+    width: 75px;
+    min-height: 58px;
+    padding: 5px;
+    font-size: 8px;
+    letter-spacing: 0.8px;
+  }
+  .wheel-month span {
+    width: 29px;
+    height: 29px;
+    margin-bottom: 4px;
+    font-size: 8px;
+  }
+  /* Posiciones móviles */
+  .wheel-month[data-month="febrero"] {
+    right: 8%;
+  }
+  .wheel-month[data-month="marzo"] {
+    right: -1%;
+  }
+  .wheel-month[data-month="abril"] {
+    right: -2%;
+  }
+  .wheel-month[data-month="mayo"] {
+    right: 3%;
+  }
+  .wheel-month[data-month="junio"] {
+    right: 16%;
+  }
+  .wheel-month[data-month="agosto"] {
+    left: 16%;
+  }
+  .wheel-month[data-month="septiembre"] {
+    left: 3%;
+  }
+  .wheel-month[data-month="octubre"] {
+    left: -2%;
+  }
+  .wheel-month[data-month="noviembre"] {
+    left: -1%;
+  }
+  .wheel-month[data-month="diciembre"] {
+    left: 8%;
+  }
+  /* Información */
+  .month-events-header {
+    gap: 14px;
+    margin-bottom: 22px;
+    padding-bottom: 15px;
+  }
+  .month-events-number {
+    width: 55px;
+    height: 55px;
+    font-size: 18px;
+  }
+  .month-events-header h3 {
+    font-size: 27px;
+  }
+  .festivity-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .festivity-card {
+    padding: 18px;
+    gap: 14px;
+  }
+  .festivity-icon {
+    width: 45px;
+    height: 45px;
+    font-size: 16px;
+  }
+  .festivity-info h4 {
+    font-size: 18px;
+  }
+  .festivity-info p {
+    font-size: 12px;
+  }
+}
+/* ============================================================
+   CELULAR PEQUEÑO
+============================================================ */
+@media (max-width: 380px) {
+  .festividades-wheel {
+    max-width: 350px;
+  }
+  .wheel-center {
+    width: 130px;
+    height: 130px;
+  }
+  .wheel-center h3 {
+    font-size: 16px;
+  }
+  .wheel-center p {
+    font-size: 12px;
+  }
+  .wheel-month {
+    width: 65px;
+    font-size: 7px;
+  }
+  .wheel-month span {
+    width: 25px;
+    height: 25px;
+  }
+}
+/* =========================================================
+   GALERÍA
+========================================================= */
+.gallery-section {
+  background: var(--verde-oscuro);
+}
+.gallery-section .section-title {
+  color: var(--blanco);
+}
+.gallery-section .section-title span {
+  color: var(--dorado-claro);
+}
+.gallery-section .section-description {
+  color: rgba(255, 255, 255, 0.62);
+}
+.gallery-section .section-label {
+  color: var(--dorado-claro);
+}
+/* =========================================================
+   GRID DE GALERÍA
+========================================================= */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 230px;
+  gap: 10px;
+}
+/* =========================================================
+   ELEMENTOS
+========================================================= */
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  background: var(--verde-medio);
+  cursor: pointer;
+  isolation: isolate;
+}
+/* Imagen grande */
+.gallery-item.gallery-large {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+/* =========================================================
+   IMÁGENES
+========================================================= */
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+  transform: scale(1);
+  filter: brightness(0.92);
+  transition:
+    transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1),
+    filter 0.8s ease;
+}
+/* =========================================================
+   EFECTO HOVER DE LA IMAGEN
+========================================================= */
+.gallery-item:hover img {
+  transform: scale(1.08);
+  filter: brightness(1.05);
+}
+/* =========================================================
+   BRILLO SOBRE LA IMAGEN
+========================================================= */
+.gallery-item::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    135deg,
+    rgba(212, 175, 55, 0.12),
+    transparent 40%,
+    rgba(3, 27, 13, 0.18)
+  );
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+.gallery-item:hover::before {
+  opacity: 1;
+}
+/* =========================================================
+   BORDE DORADO
+========================================================= */
+.gallery-item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  border: 1px solid rgba(212, 175, 55, 0);
+  transition:
+    border-color 0.45s ease,
+    inset 0.45s ease;
+  pointer-events: none;
+}
+.gallery-item:hover::after {
+  inset: 7px;
+  border-color: rgba(212, 175, 55, 0.55);
+}
+/* =========================================================
+   CAPTION
+========================================================= */
+.gallery-caption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 3;
+  padding: 40px 18px 17px;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.82));
+  color: var(--blanco);
+  transform: translateY(100%);
+  transition: transform 0.45s ease;
+}
+.gallery-item:hover .gallery-caption {
+  transform: translateY(0);
+}
+/* =========================================================
+   TEXTO DEL CAPTION
+========================================================= */
+.gallery-caption span {
+  color: var(--dorado-claro);
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+/* =========================================================
+   EFECTO PARA EL ELEMENTO GRANDE
+========================================================= */
+.gallery-item.gallery-large img {
+  transition:
+    transform 1s cubic-bezier(0.2, 0.7, 0.2, 1),
+    filter 0.8s ease;
+}
+.gallery-item.gallery-large:hover img {
+  transform: scale(1.06);
+}
+/* =========================================================
+   INDICADOR VISUAL
+========================================================= */
+.gallery-item {
+  transition:
+    box-shadow 0.45s ease,
+    transform 0.45s ease;
+}
+.gallery-item:hover {
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.3);
+}
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+@media (max-width: 900px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 220px;
+  }
+  .gallery-item.gallery-large {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+}
+/* =========================================================
+   CELULAR
+========================================================= */
+@media (max-width: 600px) {
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    grid-auto-rows: 260px;
+    gap: 8px;
+  }
+  .gallery-item.gallery-large {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+  .gallery-caption {
+    transform: translateY(0);
+    padding: 45px 16px 15px;
+  }
+  .gallery-caption span {
+    font-size: 1.2rem;
+  }
+  .gallery-item:hover img {
+    transform: scale(1.04);
+  }
+}
+/* =========================================================
+   CELULARES PEQUEÑOS
+========================================================= */
+@media (max-width: 400px) {
+  .gallery-grid {
+    grid-auto-rows: 230px;
+  }
+  .gallery-caption span {
+    font-size: 1.1rem;
+  }
+}
+/* =========================================================
+   FOOTER
+========================================================= */
+.footer {
+  padding-top: 70px;
+  background: #020b05;
+  color: var(--blanco);
+}
+.footer-top {
+  display: grid;
+  grid-template-columns: 1.4fr repeat(3, 1fr);
+  gap: 50px;
+  padding-bottom: 55px;
+}
+.footer-brand .logo {
+  margin-bottom: 18px;
+}
+.footer-brand p {
+  color: rgba(255, 255, 255, 0.5);
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.1rem;
+}
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.footer-links h3 {
+  margin-bottom: 10px;
+  color: var(--dorado-claro);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.footer-links a {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.72rem;
+  transition: var(--transicion);
+}
+.footer-links a:hover {
+  color: var(--dorado-claro);
+  transform: translateX(4px);
+}
+.footer-social {
+  display: flex;
+  gap: 8px;
+}
+.footer-social a {
+  border-color: rgba(255, 255, 255, 0.15);
+  color: rgba(255, 255, 255, 0.65);
+}
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 20px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.38);
+  font-size: 0.62rem;
+}
+/* =========================================================
+   BOTÓN VOLVER ARRIBA
+========================================================= */
+.back-to-top {
+  position: fixed;
+  right: 25px;
+  bottom: 25px;
+  z-index: 4000;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--dorado);
+  color: var(--verde-oscuro);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  transition:
+    opacity 0.35s ease,
+    visibility 0.35s ease,
+    transform 0.35s ease,
+    background 0.35s ease;
+}
+.back-to-top.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.back-to-top:hover {
+  background: var(--dorado-claro);
+  transform: translateY(-4px);
+}
+/* =========================================================
+   LIGHTBOX
+========================================================= */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  background: rgba(0, 0, 0, 0.93);
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.4s ease,
+    visibility 0.4s ease;
+}
+.lightbox.active {
+  opacity: 1;
+  visibility: visible;
+}
+.lightbox-content {
+  width: min(1000px, 90vw);
+  height: min(700px, 80vh);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.lightbox-image {
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, var(--verde-medio), var(--verde-oscuro));
+  border: 1px solid rgba(212, 175, 55, 0.4);
+}
+.lightbox-close {
+  position: absolute;
+  top: 25px;
+  right: 30px;
+  width: 45px;
+  height: 45px;
+  background: transparent;
+  color: var(--dorado-claro);
+  font-size: 1.6rem;
+  transition: var(--transicion);
+}
+.lightbox-close:hover {
+  transform: rotate(90deg);
+  color: var(--blanco);
+}
+/* =========================================================
+   VESTIMENTA Y DANZA TÍPICA
+   IMAGEN GRANDE + TEXTO CON DESPLAZAMIENTO VERTICAL
+========================================================= */
+.culture-section {
+  background: linear-gradient(180deg, var(--blanco-suave) 0%, #f3f1e8 100%);
+}
+.culture-content {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(45px, 7vw, 100px);
+  min-height: 520px;
+}
+/* =========================================================
+   IMAGEN
+========================================================= */
+.culture-image {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 470px;
+  animation: cultureFloat 5s ease-in-out infinite;
+}
+.culture-image img {
+  width: min(100%, 980px);
+  height: 470px;
+  /* Mantiene la fotografía completa */
+  object-fit: contain;
+  object-position: center;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  border-radius: 0;
+  filter: saturate(1.04) contrast(1.02);
+  display: block;
+  /* AGRANDA SOLAMENTE LA IMAGEN */
+  transform: scale(1.35);
+}
+/* =========================================================
+   TEXTO SOBRE LA IMAGEN
+========================================================= */
+.culture-image-caption {
+  position: absolute;
+  left: 50%;
+  bottom: 5px;
+  transform: translateX(-50%);
+  padding: 8px 15px;
+  background: rgba(3, 27, 13, 0.78);
+  color: var(--dorado-claro);
+  font-family: "Cormorant Garamond", serif;
+  font-size: 0.95rem;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+  z-index: 2;
+}
+/* =========================================================
+   VENTANA DE TEXTO
+========================================================= */
+.culture-text-window {
+  position: relative;
+  height: 430px;
+  overflow: hidden;
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 10%,
+    black 90%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 10%,
+    black 90%,
+    transparent 100%
+  );
+}
+.culture-text-track {
+  display: flex;
+  flex-direction: column;
+  gap: 38px;
+  animation: cultureTextUp 22s linear infinite;
+  will-change: transform;
+}
+.culture-text-block {
+  flex: 0 0 auto;
+  padding: 5px 0 18px 25px;
+  border-left: 1px solid rgba(212, 175, 55, 0.55);
+}
+.culture-number {
+  display: inline-block;
+  margin-bottom: 8px;
+  color: var(--dorado-oscuro);
+  font-family: "Cinzel", serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+}
+.culture-text-block h3 {
+  margin-bottom: 10px;
+  color: var(--verde-oscuro);
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(1.7rem, 3vw, 2.3rem);
+  font-weight: 600;
+  line-height: 1.05;
+}
+.culture-text-block p {
+  max-width: 570px;
+  color: #68736c;
+  font-size: 0.92rem;
+  line-height: 1.85;
+}
+/* =========================================================
+   ANIMACIÓN DE LA IMAGEN
+========================================================= */
+@keyframes cultureFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+/* =========================================================
+   ANIMACIÓN DEL TEXTO
+========================================================= */
+@keyframes cultureTextUp {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-50%);
+  }
+}
+/* =========================================================
+   TABLET
+========================================================= */
+@media (max-width: 900px) {
+  .culture-content {
+    grid-template-columns: 1fr;
+    gap: 45px;
+    min-height: auto;
+  }
+  .culture-image {
+    min-height: auto;
+  }
+  .culture-image img {
+    width: min(100%, 560px);
+    height: 420px;
+    object-fit: contain;
+    object-position: center;
+    /* Un poco más grande en tablet */
+    transform: scale(1.2);
+  }
+  .culture-text-window {
+    height: 380px;
+  }
+}
+/* =========================================================
+   CELULAR
+========================================================= */
+@media (max-width: 600px) {
+  .culture-content {
+    gap: 30px;
+  }
+  .culture-image {
+    min-height: 0;
+  }
+  .culture-image img {
+    width: 100%;
+    height: 330px;
+    object-fit: contain;
+    object-position: center;
+    /* Aumento moderado para celular */
+    transform: scale(1.15);
+  }
+  .culture-image-caption {
+    bottom: 12px;
+    font-size: 0.82rem;
+    padding: 7px 11px;
+  }
+  .culture-text-window {
+    height: 350px;
+  }
+  .culture-text-track {
+    gap: 28px;
+    animation-duration: 19s;
+  }
+  .culture-text-block {
+    padding-left: 18px;
+  }
+  .culture-text-block p {
+    font-size: 0.84rem;
+    line-height: 1.7;
+  }
+}
+/* =========================================================
+   REDUCIR ANIMACIONES
+========================================================= */
+@media (prefers-reduced-motion: reduce) {
+  .culture-image,
+  .culture-text-track {
+    animation: none;
+  }
+}
+/* =========================================================
+   REDUCIR ANIMACIONES SI EL USUARIO LO PREFIERE
+========================================================= */
+@media (prefers-reduced-motion: reduce) {
+  .culture-image,
+  .culture-text-track {
+    animation: none;
+  }
+}
+/* =========================================================
+   ANIMACIONES SCROLL
+========================================================= */
+.reveal,
+.reveal-left,
+.reveal-right {
+  opacity: 0;
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+}
+.reveal {
+  transform: translateY(45px);
+}
+.reveal-left {
+  transform: translateX(-55px);
+}
+.reveal-right {
+  transform: translateX(55px);
+}
+.reveal.visible,
+.reveal-left.visible,
+.reveal-right.visible {
+  opacity: 1;
+  transform: translate(0);
+}
+/* =========================================================
+   ANIMACIÓN ESPECIAL GASTRONOMÍA
+========================================================= */
+.gastronomy-item .gastronomy-image,
+.gastronomy-item .gastronomy-content {
+  transition:
+    opacity 0.9s ease,
+    transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.gastronomy-item .gastronomy-image {
+  opacity: 0.85;
+}
+.gastronomy-item .gastronomy-content {
+  opacity: 0.85;
+}
+.gastronomy-item.visible .gastronomy-image,
+.gastronomy-item.visible .gastronomy-content {
+  opacity: 1;
+}
+/* =========================================================
+   EFECTO DE RETRASO
+========================================================= */
+.tour-card:nth-child(2),
+.experience-item:nth-child(2),
+.event-card:nth-child(2),
+.gallery-item:nth-child(2),
+.gastronomy-item:nth-child(2) {
+  transition-delay: 0.1s;
+}
+.tour-card:nth-child(3),
+.experience-item:nth-child(3),
+.event-card:nth-child(3),
+.gallery-item:nth-child(3),
+.gastronomy-item:nth-child(3) {
+  transition-delay: 0.2s;
+}
+.tour-card:nth-child(4),
+.experience-item:nth-child(4),
+.gallery-item:nth-child(4),
+.gastronomy-item:nth-child(4) {
+  transition-delay: 0.3s;
+}
+.experience-item:nth-child(5) {
+  transition-delay: 0.4s;
+}
+.experience-item:nth-child(6) {
+  transition-delay: 0.5s;
+}
+.gastronomy-item:nth-child(5) {
+  transition-delay: 0.4s;
+}
+.gastronomy-item:nth-child(6) {
+  transition-delay: 0.5s;
+}
+/* =========================================================
+   SELECCIÓN DE TEXTO
+========================================================= */
+::selection {
+  background: var(--dorado);
+  color: var(--verde-oscuro);
+}
+/* =========================================================
+   SCROLLBAR
+========================================================= */
+::-webkit-scrollbar {
+  width: 9px;
+}
+::-webkit-scrollbar-track {
+  background: var(--verde-oscuro);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--dorado-oscuro);
+  border-radius: 20px;
+  border: 2px solid var(--verde-oscuro);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--dorado);
+}
+/* =========================================================
+   RESPONSIVE - TABLET
+========================================================= */
+@media (max-width: 1100px) {
+  .nav {
+    gap: 16px;
+  }
+  .nav-link {
+    font-size: 0.66rem;
+  }
+  .attractions-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .events-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .footer-top {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .gastronomy-item,
+  .gastronomy-item.reverse {
+    grid-template-columns:
+      70px
+      minmax(260px, 1fr)
+      minmax(270px, 1fr);
+    gap: 30px;
+  }
+  .gastronomy-image img {
+    height: 300px;
+  }
+}
+/* =========================================================
+   RESPONSIVE - TABLET PEQUEÑA
+========================================================= */
+@media (max-width: 900px) {
+  .section {
+    padding: 90px 0;
+  }
+  .nav {
+    display: none;
+  }
+  .menu-toggle {
+    display: flex;
+  }
+  /* MENÚ MÓVIL FUNCIONAL */
+  .nav.active {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 15px 25px 25px;
+    background: rgba(3, 27, 13, 0.98);
+    backdrop-filter: blur(18px);
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.25);
+    border-top: 1px solid rgba(212, 175, 55, 0.15);
+  }
+  .nav.active .nav-link {
+    width: 100%;
+    padding: 14px 5px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    font-size: 0.72rem;
+  }
+  .nav.active .nav-link:last-child {
+    border-bottom: none;
+  }
+  .discover-grid {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+  .discover-image {
+    min-height: 450px;
+  }
+  .image-frame {
+    width: 100%;
+    height: 450px;
+  }
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+  .planning-box {
+    grid-template-columns: 1fr;
+    padding: 50px 40px;
+  }
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 220px;
+  }
+  .footer-top {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 35px;
+  }
+  /* GASTRONOMÍA TABLET */
+  .gastronomy-list {
+    gap: 80px;
+  }
+  .gastronomy-item,
+  .gastronomy-item.reverse {
+    grid-template-columns:
+      55px
+      minmax(240px, 1fr)
+      minmax(240px, 1fr);
+    gap: 25px;
+  }
+  .gastronomy-number {
+    font-size: 3rem;
+  }
+  .gastronomy-image {
+    min-height: 300px;
+  }
+  .gastronomy-image img {
+    height: 280px;
+  }
+  .gastronomy-content h3 {
+    font-size: 2.7rem;
+  }
+}
+/* =========================================================
+   RESPONSIVE - CELULAR
+========================================================= */
+@media (max-width: 700px) {
+  .container {
+    width: min(90%, var(--ancho));
+  }
+  .section {
+    padding: 75px 0;
+  }
+  .section-header {
+    margin-bottom: 45px;
+  }
+  .hero-content {
+    padding-top: 100px;
+  }
+  .hero-title span {
+    font-size: clamp(2.2rem, 12vw, 4rem);
+  }
+  .hero-title strong {
+    font-size: clamp(2.7rem, 15vw, 5rem);
+  }
+  .hero-description {
+    margin-top: 25px;
+    font-size: 1.2rem;
+  }
+  .hero-buttons {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .hero-corner {
+    width: 60px;
+    height: 60px;
+  }
+  .hero-corner-left {
+    left: 20px;
+    bottom: 20px;
+  }
+  .hero-corner-right {
+    right: 20px;
+    top: 100px;
+  }
+  .attractions-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+  .tour-card {
+    min-height: 480px;
+  }
+  .tour-card-inner {
+    height: 480px;
+  }
+  .events-grid {
+    grid-template-columns: 1fr;
+  }
+  .experiences-grid {
+    grid-template-columns: 1fr;
+  }
+  .planning-options {
+    grid-template-columns: 1fr;
+  }
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .contact-form {
+    padding: 25px;
+  }
+  .footer-top {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  /* =====================================================
+       GASTRONOMÍA - CELULAR
+    ===================================================== */
+  .gastronomy-list {
+    gap: 75px;
+    margin-top: 50px;
+  }
+  .gastronomy-item,
+  .gastronomy-item.reverse {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 20px;
+    min-height: auto;
+  }
+  .gastronomy-number {
+    order: 1;
+    font-size: 2.5rem;
+    padding-left: 3px;
+  }
+  .gastronomy-image,
+  .gastronomy-item.reverse .gastronomy-image {
+    order: 2;
+    min-height: 270px;
+    width: 100%;
+  }
+  .gastronomy-content,
+  .gastronomy-item.reverse .gastronomy-content {
+    order: 3;
+    max-width: 100%;
+    padding: 5px 0 0;
+  }
+  .gastronomy-image img {
+    width: 100%;
+    max-width: 100%;
+    height: 280px;
+  }
+  .gastronomy-image::before {
+    width: 70%;
+    height: 70%;
+  }
+  .gastronomy-image::after {
+    width: 88%;
+    height: 88%;
+  }
+  .gastronomy-content h3 {
+    font-size: 2.5rem;
+    line-height: 1.05;
+  }
+  .gastronomy-content p {
+    font-size: 0.88rem;
+    line-height: 1.8;
+  }
+}
+/* =========================================================
+   RESPONSIVE - CELULAR PEQUEÑO
+========================================================= */
+@media (max-width: 480px) {
+  .header {
+    padding: 12px 0;
+  }
+  .logo-symbol {
+    width: 36px;
+    height: 36px;
+  }
+  .logo-main {
+    font-size: 0.95rem;
+  }
+  .logo-sub {
+    font-size: 0.72rem;
+  }
+  .hero {
+    min-height: 100svh;
+  }
+  .hero-buttons .btn {
+    width: 100%;
+  }
+  .tour-search {
+    margin-bottom: 35px;
+  }
+  .tour-card {
+    min-height: 450px;
+  }
+  .tour-card-inner {
+    height: 450px;
+  }
+  .tour-card-back {
+    padding: 25px 20px;
+  }
+  .tour-front-content {
+    padding: 25px 20px;
+  }
+  .tour-front-content h3,
+  .tour-card-back h3 {
+    font-size: 1.75rem;
+  }
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    grid-auto-rows: 230px;
+  }
+  .gallery-item.gallery-large {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+  .planning-box {
+    padding: 40px 25px;
+  }
+  .back-to-top {
+    right: 15px;
+    bottom: 15px;
+    width: 44px;
+    height: 44px;
+  }
+  /* GASTRONOMÍA */
+  .gastronomy-list {
+    gap: 60px;
+  }
+  .gastronomy-number {
+    font-size: 2.2rem;
+  }
+  .gastronomy-image {
+    min-height: 240px;
+  }
+  .gastronomy-image img {
+    height: 250px;
+  }
+  .gastronomy-content h3 {
+    font-size: 2.25rem;
+  }
+  .gastronomy-category {
+    font-size: 0.63rem;
+    letter-spacing: 0.12em;
+  }
+  .gastronomy-content p {
+    font-size: 0.84rem;
+  }
+}
+/* =========================================================
+   REDUCIR ANIMACIONES SI EL USUARIO LO SOLICITA
+========================================================= */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
