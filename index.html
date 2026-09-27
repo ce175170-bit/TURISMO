@@ -1,7 +1,5 @@
 <!DOCTYPE html>
-
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -84,9 +82,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 <link rel="stylesheet" href="estilos.css">
 </head>
-
 <body>
-
 <!-- =========================================================
      PRELOADER
 ========================================================== -->
@@ -124,23 +120,18 @@
             href="#inicio"
             class="logo"
             aria-label="Turismo Betanzos - Inicio">
-
             <div class="logo-symbol">
                 <i class="fa-solid fa-mountain-sun"></i>
             </div>
 
             <div class="logo-text">
-
                 <span class="logo-main">
                     BETANZOS
                 </span>
-
                 <span class="logo-sub">
                     Turismo
                 </span>
-
             </div>
-
         </a>
 
         <!-- MENÚ -->
@@ -149,74 +140,60 @@
             class="nav"
             id="mainNav"
             aria-label="Navegación principal">
-
             <a
                 href="#inicio"
                 class="nav-link active">
                 Inicio
             </a>
-
             <a
                 href="#descubre"
                 class="nav-link">
                 Descubre
             </a>
-
             <a
                 href="#atractivos"
                 class="nav-link">
                 Atractivos
             </a>
-
             <a
                 href="#gastronomia"
                 class="nav-link">
                 Gastronomia
             </a>
-
             <a
                 href="#planifica"
                 class="nav-link">
                 Planifica
             </a>
-
             <a
                 href="#vestimenta"
                 class="nav-link">
                 Vestimenta
             </a>
-
             <a
                 href="#eventos"
                 class="nav-link">
                 Eventos
             </a>
-
             <a
                 href="#galeria"
                 class="nav-link">
                 Galería
             </a>
-
         </nav>
 
         <!-- MENÚ MÓVIL -->
-
         <button
             class="menu-toggle"
             id="menuToggle"
             type="button"
             aria-label="Abrir menú"
             aria-expanded="false">
-
             <span></span>
             <span></span>
             <span></span>
-
         </button>
-
     </div>
-
 </header>
 
 <!-- =========================================================
@@ -226,7 +203,7 @@
 <main>
 
     <!-- =====================================================
-         INICIO
+         1° SECCION INICIO
     ====================================================== -->
     <section
         id="inicio"
@@ -319,7 +296,7 @@
     </section>
 
     <!-- =====================================================
-         DESCUBRE
+         2° SECCION DESCUBRE
     ====================================================== -->
     <section
         id="descubre"
@@ -410,114 +387,150 @@
     </section>
 
     <!-- =====================================================
-         ATRACTIVOS TURÍSTICOS
+         3° SECCION ATRACTIVOS TURÍSTICOS
     ====================================================== -->
     <section
         id="atractivos"
         class="section attractions-section">
-
         <div class="container">
-
             <div class="section-header reveal">
-
                 <span class="section-label">
                     <i class="fa-solid fa-compass"></i>
                     LUGARES PARA CONOCER
                 </span>
-
                 <h2 class="section-title">
                     Atractivos
                     <span>turísticos</span>
                 </h2>
-
                 <div class="section-line"></div>
-
                 <p class="section-description">
                     Descubre los lugares que hacen de Betanzos
                     un destino lleno de historia, naturaleza,
                     cultura y paisajes inolvidables.
                 </p>
-
             </div>
-
             <div class="tour-search reveal">
-
                 <i class="fa-solid fa-magnifying-glass"></i>
-
                 <input
                     type="search"
                     id="tourSearch"
                     placeholder="Buscar un lugar turístico..."
                     autocomplete="off"
                     aria-label="Buscar un lugar turístico">
-
                 <button
                     type="button"
                     id="clearTourSearch"
                     class="tour-search-clear"
                     aria-label="Limpiar búsqueda">
-
                     <i class="fa-solid fa-xmark"></i>
-
                 </button>
-
             </div>
 
             <div class="attractions-grid">
 
-                <!-- LUGAR 1 -->
+                <!-- LUGAR 1 ADELANTE-->
+                <article
+                    class="tour-card reveal"
+                    data-place="betanzos"
+                    tabindex="0"
+                    aria-label="Lajasmayu, atractivo turístico de Betanzos. Haz clic para ver información.">
+                    <div class="tour-card-inner">
+                        <div class="tour-card-front">
+                            <div class="tour-image">
+                                <img
+                                    src="img/beta.webp"
+                                    alt="betanzos, Betanzos, Potosí"
+                                    loading="lazy">
+                                <div class="tour-image-overlay"></div>
+                                <div class="tour-front-content">
+                                    <span class="tour-number">
+                                        01
+                                    </span>
+                                    <h3>
+                                        Betanzos
+                                    </h3>
+                                    <span class="tour-more">
+                                        Conocer lugar
+                                        <i class="fa-solid fa-arrow-rotate-right"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
 
+                        <!-- REVERSO-->
+                        <div class="tour-card-back">
+                            <span class="tour-back-category">
+                                <i class="fa-solid fa-location-dot"></i>
+                                Betanzos
+                            </span>
+                            <h3>
+                                Betanzos
+                            </h3>
+                            <p>
+                                Recorre lugares que guardan la historia de Betanzos: <br>
+                                ⛪ Museo dentro la parroquia <br>
+                                🏡 Hacienda de Bartolillo <br>
+                                ⛰️ Cerro Thumillki: Atrévete a subir y contempla el paisaje desde las alturas. <br>
+                                🪦 Cementerio: Encontrarás un monumento dedicado a los excombatientes de la Guerra del Chaco. <br>
+                                
+                            </p>
+                            <div class="tour-buttons">
+                               <a
+                                    href="https://www.google.com/maps/dir/?api=1&origin=Betanzos%2C%20Potos%C3%AD%2C%20Bolivia&destination=-19.579531991100858%2C-65.43275514568049&waypoints=-19.553628448279422%2C-65.45400041886218%7C-19.544341241049427%2C-65.45082350538911%7C-19.561279022391435%2C-65.45211648377368&travelmode=driving"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="tour-btn tour-btn-map">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    Ver ruta turística
+                                </a>
+                                
+                            </div>
+                            <span class="tour-flip-hint">
+                                <i class="fa-solid fa-rotate-left"></i>
+                                Volver
+                            </span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- LUGAR 2 ADELANTE-->
                 <article
                     class="tour-card reveal"
                     data-place="lajasmayu"
                     tabindex="0"
                     aria-label="Lajasmayu, atractivo turístico de Betanzos. Haz clic para ver información.">
-
                     <div class="tour-card-inner">
-
                         <div class="tour-card-front">
-
                             <div class="tour-image">
-
                                 <img
                                     src="img/lajasmayu.webp"
                                     alt="Lajasmayu, Betanzos, Potosí"
                                     loading="lazy">
-
                                 <div class="tour-image-overlay"></div>
-
                                 <div class="tour-front-content">
-
                                     <span class="tour-number">
-                                        01
+                                        02
                                     </span>
-
                                     <h3>
                                         Lajasmayu
                                     </h3>
-
                                     <span class="tour-more">
                                         Conocer lugar
                                         <i class="fa-solid fa-arrow-rotate-right"></i>
                                     </span>
-
                                 </div>
-
                             </div>
-
                         </div>
 
+                        <!-- REVERSO-->
                         <div class="tour-card-back">
-
                             <span class="tour-back-category">
                                 <i class="fa-solid fa-location-dot"></i>
                                 Betanzos
                             </span>
-
                             <h3>
                                 Lajasmayu
                             </h3>
-
                             <p>
                                 <strong>Descubre Lajasmayu</strong><br>
                                 Explora antiguas <strong>"PINTURAS RUPESTRES"</strong>,
@@ -526,97 +539,69 @@
                                 rincón de Betanzos.
                                 <strong>¡Una aventura que merece ser descubierta!</strong>
                             </p>
-
                             <div class="tour-buttons">
-
                                 <a
                                     href="https://www.google.com/maps/@?api=1&map_action=map&center=-19.55479848966799%2C-65.42246164268225&zoom=18"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     class="tour-btn tour-btn-map">
-
                                     <i class="fas fa-map-marker-alt"></i>
                                     Ver en Google Maps
-
                                 </a>
-
                                 <a
                                     href="https://www.google.com/maps/dir/?api=1&origin=Betanzos%2C%20Potos%C3%AD%2C%20Bolivia&destination=-19.55479848966799%2C-65.42246164268225&travelmode=driving"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     class="tour-btn tour-btn-route">
-
                                     <i class="fas fa-route"></i>
                                     Cómo llegar
-
                                 </a>
-
                             </div>
-
                             <span class="tour-flip-hint">
                                 <i class="fa-solid fa-rotate-left"></i>
                                 Volver
                             </span>
-
                         </div>
-
                     </div>
-
                 </article>
 
-                <!-- LUGAR 2 -->
-
+                <!-- LUGAR 3 -->
                 <article
                     class="tour-card reveal"
-                    data-place="Patrimonio histórico"
+                    data-place="Cristo de piedra"
                     tabindex="0"
                     aria-label="Cristo de piedra de Tecoya, Betanzos. Haz clic para ver información.">
-
                     <div class="tour-card-inner">
-
                         <div class="tour-card-front">
-
                             <div class="tour-image">
-
                                 <img
                                     src="img/cristo.webp"
                                     alt="Cristo de piedra de Tecoya, Betanzos, Potosí"
                                     loading="lazy">
-
                                 <div class="tour-image-overlay"></div>
-
                                 <div class="tour-front-content">
-
                                     <span class="tour-number">
-                                        02
+                                        03
                                     </span>
-
                                     <h3>
                                         Cristo de piedra
                                     </h3>
-
                                     <span class="tour-more">
                                         Conocer lugar
                                         <i class="fa-solid fa-arrow-rotate-right"></i>
                                     </span>
-
                                 </div>
-
                             </div>
-
                         </div>
-
                         <div class="tour-card-back">
 
                             <span class="tour-back-category">
                                 <i class="fa-solid fa-location-dot"></i>
                                 Tecoya
                             </span>
-
                             <h3>
                                 Cristo de piedra "Tecoya"
                             </h3>
-
                             <p>
                                 Una formación natural con la silueta de un
                                 Cristo, ubicada en lo alto de un cerro con
@@ -624,101 +609,72 @@
                                 una pequeña cascada que cobra especial belleza
                                 durante la temporada de lluvias.
                             </p>
-
                             <div class="tour-buttons">
-
                                 <a
                                     href="https://www.google.com/maps/@?api=1&map_action=map&center=-19.476564982358926%2C-65.41407841115755&zoom=18"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     class="tour-btn tour-btn-map">
-
                                     <i class="fas fa-map-marker-alt"></i>
                                     Ver en Google Maps
-
                                 </a>
-
                                 <a
                                     href="https://www.google.com/maps/dir/?api=1&origin=Betanzos%2C%20Potos%C3%AD%2C%20Bolivia&destination=-19.475471448541875%2C-65.41351223972904&travelmode=driving"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     class="tour-btn tour-btn-route">
-
                                     <i class="fas fa-route"></i>
                                     Cómo llegar
-
                                 </a>
-
                             </div>
-
                             <span class="tour-flip-hint">
                                 <i class="fa-solid fa-rotate-left"></i>
                                 Volver
                             </span>
-
                         </div>
-
                     </div>
-
                 </article>
 
-                <!-- LUGAR 3 -->
-
+                <!-- LUGAR 4 -->
                 <article
                     class="tour-card reveal"
                     data-place="Tirispaya"
                     tabindex="0"
                     aria-label="Hacienda Aniceto Arce de Tirispaya, Betanzos. Haz clic para ver información.">
-
                     <div class="tour-card-inner">
-
                         <div class="tour-card-front">
-
                             <div class="tour-image">
-
                                 <img
                                     src="img/tirispaya.webp"
                                     alt="Hacienda Aniceto Arce de Tirispaya, Betanzos"
                                     loading="lazy">
-
                                 <div class="tour-image-overlay"></div>
-
                                 <div class="tour-front-content">
-
                                     <span class="tour-number">
-                                        03
+                                        04
                                     </span>
-
                                     <h3>
                                         Hacienda
                                         <br>
                                         "Aniceto Arce"
                                     </h3>
-
                                     <span class="tour-more">
                                         Conocer lugar
                                         <i class="fa-solid fa-arrow-rotate-right"></i>
                                     </span>
-
                                 </div>
-
                             </div>
-
                         </div>
-
                         <div class="tour-card-back">
-
                             <span class="tour-back-category">
                                 <i class="fa-solid fa-location-dot"></i>
                                 Tirispaya
                             </span>
-
                             <h3>
                                 Hacienda
                                 <br>
                                 "Aniceto Arce"
                             </h3>
-
                             <p>
                                 Visita la histórica Hacienda de Aniceto Arce
                                 en Tirispaya, un lugar ligado a la historia
@@ -727,88 +683,61 @@
                                 y disfruta de los hermosos paisajes que rodean
                                 esta comunidad.
                             </p>
-
                             <div class="tour-buttons">
-
                                 <a
                                     href="https://www.google.com/maps/@?api=1&map_action=map&center=-19.270452019084438%2C-65.41729999082395&zoom=18"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     class="tour-btn tour-btn-map">
-
                                     <i class="fas fa-map-marker-alt"></i>
                                     Ver en Google Maps
-
                                 </a>
-
                                 <a
                                     href="https://www.google.com/maps/dir/?api=1&origin=Betanzos%2C%20Potos%C3%AD%2C%20Bolivia&destination=-19.270452019084438%2C-65.41729999082395&travelmode=driving"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     class="tour-btn tour-btn-route">
-
                                     <i class="fas fa-route"></i>
                                     Cómo llegar
-
                                 </a>
-
                             </div>
-
                             <span class="tour-flip-hint">
                                 <i class="fa-solid fa-rotate-left"></i>
                                 Volver
                             </span>
-
                         </div>
-
                     </div>
-
                 </article>
 
-                <!-- LUGAR 4 -->
-
+                <!-- LUGAR 5-->
                 <article
                     class="tour-card reveal"
                     data-place="otuyo"
                     tabindex="0"
                     aria-label="Templo de Otuyo, Betanzos. Haz clic para ver información.">
-
                     <div class="tour-card-inner">
-
                         <div class="tour-card-front">
-
                             <div class="tour-image">
-
                                 <img
                                     src="img/otuyo.webp"
                                     alt="Templo de Otuyo, Betanzos, Potosí"
                                     loading="lazy">
-
                                 <div class="tour-image-overlay"></div>
-
                                 <div class="tour-front-content">
-
                                     <span class="tour-number">
-                                        04
+                                        05
                                     </span>
-
                                     <h3>
                                         Templo de Otuyo
                                     </h3>
-
                                     <span class="tour-more">
                                         Conocer lugar
                                         <i class="fa-solid fa-arrow-rotate-right"></i>
                                     </span>
-
                                 </div>
-
                             </div>
-
                         </div>
-
                         <div class="tour-card-back">
-
                             <span class="tour-back-category">
                                 <i class="fa-solid fa-location-dot"></i>
                                 Otuyo
@@ -828,40 +757,241 @@
                             </p>
 
                             <div class="tour-buttons">
-
                                 <a
                                     href="https://www.google.com/maps/@?api=1&map_action=map&center=-19.486658241645898%2C-65.23036532233473&zoom=18"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     class="tour-btn tour-btn-map">
-
                                     <i class="fas fa-map-marker-alt"></i>
                                     Ver en Google Maps
-
                                 </a>
-
                                 <a
                                     href="https://www.google.com/maps/dir/?api=1&origin=Betanzos%2C%20Potos%C3%AD%2C%20Bolivia&destination=-19.486658241645898%2C-65.23036532233473&travelmode=driving"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     class="tour-btn tour-btn-route">
-
                                     <i class="fas fa-route"></i>
                                     Cómo llegar
-
                                 </a>
-
                             </div>
-
                             <span class="tour-flip-hint">
                                 <i class="fa-solid fa-rotate-left"></i>
                                 Volver
                             </span>
+                        </div>
+                    </div>
+                </article>
 
+                 <!-- LUGAR 6 ADELANTE-->
+                <article
+                    class="tour-card reveal"
+                    data-place="tecoya"
+                    tabindex="0"
+                    aria-label="Lajasmayu, atractivo turístico de Betanzos. Haz clic para ver información.">
+                    <div class="tour-card-inner">
+                        <div class="tour-card-front">
+                            <div class="tour-image">
+                                <img
+                                    src="img/tecoya.webp"
+                                    alt="Templo de Tecoya, Betanzos, Potosí"
+                                    loading="lazy">
+                                <div class="tour-image-overlay"></div>
+                                <div class="tour-front-content">
+                                    <span class="tour-number">
+                                        06
+                                    </span>
+                                    <h3>
+                                        Templo de Tecoya
+                                    </h3>
+                                    <span class="tour-more">
+                                        Conocer lugar
+                                        <i class="fa-solid fa-arrow-rotate-right"></i>
+                                    </span>
+                                </div>
+                            </div>
                         </div>
 
-                    </div>
+                        <!-- REVERSO-->
+                        <div class="tour-card-back">
+                            <span class="tour-back-category">
+                                <i class="fa-solid fa-location-dot"></i>
+                                Tecoya
+                            </span>
+                            <h3>
+                                Templo de Tecoya
+                            </h3>
+                            <p>
+                                Su antiguo templo guarda el espíritu de las celebraciones y 
+                                costumbres de la comunidad, mientras que sus tierras conservan 
+                                la memoria de Miguel Betanzos, caudillo indígena vinculado a las 
+                                luchas del Alto Perú. Un rincón para recorrer, conocer y descubrir 
+                                parte de la historia y la identidad de estas tierras.
+                            </p>
+                            <div class="tour-buttons">
+                                <a
+                                    href="https://www.google.com/maps/@?api=1&map_action=map&center=-19.496289637626564%2C-65.43769183833132&zoom=18"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="tour-btn tour-btn-map">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    Ver en Google Maps
+                                </a>
 
+                                <a
+                                    href="https://www.google.com/maps/dir/?api=1&origin=Betanzos%2C%20Potos%C3%AD%2C%20Bolivia&destination=-19.496289637626564%2C-65.43769183833132&travelmode=driving"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="tour-btn tour-btn-route">
+                                    <i class="fas fa-route"></i>
+                                    Cómo llegar
+                                </a>
+                            </div>
+                            <span class="tour-flip-hint">
+                                <i class="fa-solid fa-rotate-left"></i>
+                                Volver
+                            </span>
+                        </div>
+                    </div>
+                </article>
+
+                 <!-- LUGAR 7 ADELANTE-->
+                <article
+                    class="tour-card reveal"
+                    data-place="mojotorillo"
+                    tabindex="0"
+                    aria-label="Lajasmayu, atractivo turístico de Betanzos. Haz clic para ver información.">
+                    <div class="tour-card-inner">
+                        <div class="tour-card-front">
+                            <div class="tour-image">
+                                <img
+                                    src="img/mojotorillo.webp"
+                                    alt="hacienda de mojotorillo, Betanzos, Potosí"
+                                    loading="lazy">
+                                <div class="tour-image-overlay"></div>
+                                <div class="tour-front-content">
+                                    <span class="tour-number">
+                                        07
+                                    </span>
+                                    <h3>
+                                        Hacienda de Mojotorillo
+                                    </h3>
+                                    <span class="tour-more">
+                                        Conocer lugar
+                                        <i class="fa-solid fa-arrow-rotate-right"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- REVERSO-->
+                        <div class="tour-card-back">
+                            <span class="tour-back-category">
+                                <i class="fa-solid fa-location-dot"></i>
+                                Mojotorillo
+                            </span>
+                            <h3>
+                                Hacienda de Mojotorillo
+                            </h3>
+                            <p>
+                                La Hacienda Mojotorillo invita a descubrir un paisaje donde 
+                                la tranquilidad se mezcla con la historia. Muy cerca del lugar 
+                                se encuentran las ruinas de un antiguo molino, vestigio de tiempos 
+                                pasados que permite imaginar la vida y las actividades de quienes habitaron estas tierras.
+                            </p>
+                            <div class="tour-buttons">
+                                <a
+                                    href="https://www.google.com/maps/@?api=1&map_action=map&center=-19.571696102259583%2C-65.41588658884925&zoom=18"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="tour-btn tour-btn-map">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    Ver en Google Maps
+                                </a>
+                                <a
+                                    href="https://www.google.com/maps/dir/?api=1&origin=Betanzos%2C%20Potos%C3%AD%2C%20Bolivia&destination=-19.571696102259583%2C-65.41588658884925&travelmode=driving"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="tour-btn tour-btn-route">
+                                    <i class="fas fa-route"></i>
+                                    Cómo llegar
+                                </a>
+                            </div>
+                            <span class="tour-flip-hint">
+                                <i class="fa-solid fa-rotate-left"></i>
+                                Volver
+                            </span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- LUGAR 8 ADELANTE-->
+                <article
+                    class="tour-card reveal"
+                    data-place="mayutambo"
+                    tabindex="0"
+                    aria-label="Lajasmayu, atractivo turístico de Betanzos. Haz clic para ver información.">
+                    <div class="tour-card-inner">
+                        <div class="tour-card-front">
+                            <div class="tour-image">
+                                <img
+                                    src="img/mayutambo.webp"
+                                    alt="hacienda de mayutambo, Betanzos, Potosí"
+                                    loading="lazy">
+                                <div class="tour-image-overlay"></div>
+                                <div class="tour-front-content">
+                                    <span class="tour-number">
+                                        08
+                                    </span>
+                                    <h3>
+                                        Hacienda de Mayutambo
+                                    </h3>
+                                    <span class="tour-more">
+                                        Conocer lugar
+                                        <i class="fa-solid fa-arrow-rotate-right"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- REVERSO-->
+                        <div class="tour-card-back">
+                            <span class="tour-back-category">
+                                <i class="fa-solid fa-location-dot"></i>
+                                Mayutambo
+                            </span>
+                            <h3>
+                                Hacienda de Mayutambo
+                            </h3>
+                            <p>
+                                Mayutambo guarda entre sus paisajes la esencia de la vida 
+                                tradicional y la historia de estas tierras. Rodeada de naturaleza 
+                                y tranquilidad, es un lugar que invita a recorrer sus caminos, contemplar 
+                                su entorno y descubrir las costumbres que forman parte de su identidad.
+                            </p>
+                            <div class="tour-buttons">
+                                <a
+                                    href="https://www.google.com/maps/@?api=1&map_action=map&center=-19.559834234332136%2C-65.46939796292916&zoom=18"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="tour-btn tour-btn-map">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    Ver en Google Maps
+                                </a>
+                                <a
+                                    href="https://www.google.com/maps/dir/?api=1&origin=Betanzos%2C%20Potos%C3%AD%2C%20Bolivia&destination=-19.559834234332136%2C-65.46939796292916&travelmode=driving"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="tour-btn tour-btn-route">
+                                    <i class="fas fa-route"></i>
+                                    Cómo llegar
+                                </a>
+                            </div>
+                            <span class="tour-flip-hint">
+                                <i class="fa-solid fa-rotate-left"></i>
+                                Volver
+                            </span>
+                        </div>
+                    </div>
                 </article>
 
             </div>
@@ -869,85 +999,64 @@
             <div
                 id="noTourResults"
                 class="no-tour-results">
-
                 <i class="fa-solid fa-map-location-dot"></i>
-
                 <h3>
                     No encontramos ese lugar
                 </h3>
-
                 <p>
                     Intenta buscar utilizando otro nombre.
                 </p>
-
             </div>
-
         </div>
-
     </section>
 
     <!-- =====================================================
-         GASTRONOMÍA
+         4° SECCION GASTRONOMÍA
     ====================================================== -->
     <section
         id="gastronomia"
         class="section gastronomy-section">
-
         <div class="container">
-
             <div class="section-header reveal">
-
                 <span class="section-label">
                     <i class="fa-solid fa-utensils"></i>
                     SABORES DE BETANZOS
                 </span>
-
                 <h2 class="section-title">
                     Una tradición que
                     <span>se saborea</span>
                 </h2>
-
                 <div class="section-line"></div>
-
                 <p class="section-description">
                     Descubre los sabores que forman parte de la
                     identidad de Betanzos, desde sus platos
                     tradicionales hasta sus dulces y preparaciones
                     transmitidas de generación en generación.
                 </p>
-
             </div>
 
             <div class="gastronomy-list">
 
+                    <!-- PLATO 1 -->
                 <article class="gastronomy-item reveal">
-
                     <div class="gastronomy-number">
                         01
                     </div>
-
                     <div class="gastronomy-image">
-
                         <img
-                            src="img/haba.webp"
+                            src="img/aji de haba.webp"
                             alt="Ají de haba, plato tradicional de Betanzos"
                             loading="lazy">
-
                     </div>
-
                     <div class="gastronomy-content">
-
                         <span class="gastronomy-category">
                             <i class="fa-solid fa-bowl-food"></i>
                             PLATO TÍPICO
                         </span>
-
                         <h3>
                             Ají de haba
                         </h3>
-
                         <div class="gastronomy-line"></div>
-
                         <p>
                             El ají de haba es un plato tradicional preparado
                             con habas cocidas, ají y condimentos, de sabor
@@ -956,39 +1065,29 @@
                             especialmente acompañado de papa y otros
                             ingredientes locales.
                         </p>
-
                     </div>
-
                 </article>
 
+                    <!-- PLATO 2 -->
                 <article class="gastronomy-item reverse reveal">
-
                     <div class="gastronomy-number">
                         02
                     </div>
-
                     <div class="gastronomy-image">
-
                         <img
                             src="img/lisa.webp"
                             alt="Ají de lisa, plato tradicional de Betanzos"
                             loading="lazy">
-
                     </div>
-
                     <div class="gastronomy-content">
-
                         <span class="gastronomy-category">
                             <i class="fa-solid fa-bowl-food"></i>
                             PLATO TÍPICO
                         </span>
-
                         <h3>
                             Ají de lisa
                         </h3>
-
                         <div class="gastronomy-line"></div>
-
                         <p>
                             Saborea el tradicional Ají de Lisa,
                             un plato de sabor auténtico que forma parte
@@ -996,78 +1095,117 @@
                             que invita a descubrir los sabores y tradiciones
                             de Betanzos.
                         </p>
-
                     </div>
-
                 </article>
 
+                    <!-- PLATO 3 -->
                 <article class="gastronomy-item reveal">
-
                     <div class="gastronomy-number">
                         03
                     </div>
-
                     <div class="gastronomy-image">
+                        <img
+                            src="img/aji de arbeja.webp"
+                            alt="Ají de arbeja, plato tradicional de Betanzos"
+                            loading="lazy">
+                    </div>
+                    <div class="gastronomy-content">
+                        <span class="gastronomy-category">
+                            <i class="fa-solid fa-bowl-food"></i>
+                            PLATO TÍPICO
+                        </span>
+                        <h3>
+                            Ají de arbeja
+                        </h3>
+                        <div class="gastronomy-line"></div>
+                        <p>
+                           El ají de arveja es un plato tradicional y muy apreciado 
+                           por su sabor casero y su toque de ají. Su preparación 
+                           reúne ingredientes sencillos y sabores propios de la 
+                           cocina tradicional, convirtiéndolo en una deliciosa 
+                           muestra de nuestra cultura gastronómica.
+                        </p>
+                    </div>
+                </article>
 
+                 <!-- PLATO 4 -->
+                <article class="gastronomy-item reverse reveal">
+                    <div class="gastronomy-number">
+                        04
+                    </div>
+                    <div class="gastronomy-image">
+                        <img
+                            src="img/aji de cordero.webp"
+                            alt="Ají de cordero, plato tradicional de Betanzos"
+                            loading="lazy">
+                    </div>
+                    <div class="gastronomy-content">
+                        <span class="gastronomy-category">
+                            <i class="fa-solid fa-bowl-food"></i>
+                            PLATO TÍPICO
+                        </span>
+                        <h3>
+                            Ají de cordero
+                        </h3>
+                        <div class="gastronomy-line"></div>
+                        <p>
+                            El ají de cordero, preparado al estilo de 
+                            antaño, reúne la carne tierna, el ají y los 
+                            condimentos de nuestra cocina. Un plato de campo, 
+                            sencillo y con ese sabor casero que recuerda nuestras raíces.
+                        </p>
+                    </div>
+                </article>
+
+                        <!-- REPOSTERIA 1 -->
+                <article class="gastronomy-item reveal">
+                    <div class="gastronomy-number">
+                        05
+                    </div>
+                    <div class="gastronomy-image">
                         <img
                             src="img/biscochuelo.webp"
                             alt="Biscochuelos tradicionales de Betanzos"
                             loading="lazy">
-
                     </div>
-
                     <div class="gastronomy-content">
-
                         <span class="gastronomy-category">
                             <i class="fa-solid fa-cookie-bite"></i>
                             REPOSTERIA
                         </span>
-
                         <h3>
                             Biscochuelos
                         </h3>
-
                         <div class="gastronomy-line"></div>
-
                         <p>
                             Déjate conquistar por el bizcochuelo de Betanzos,
                             un dulce tradicional elaborado con sabor y tradición.
                             Su textura esponjosa y su encanto casero lo convierten
                             en una parada deliciosa para todo visitante.
                         </p>
-
                     </div>
-
                 </article>
 
+                    <!-- REPOSTERIA 2 -->
                 <article class="gastronomy-item reverse reveal">
-
                     <div class="gastronomy-number">
-                        04
+                        06
                     </div>
-
                     <div class="gastronomy-image">
-
                         <img
                             src="img/pan.webp"
                             alt="Pan de trigo tradicional de Betanzos"
                             loading="lazy">
-
                     </div>
-
                     <div class="gastronomy-content">
-
                         <span class="gastronomy-category">
                             <i class="fa-solid fa-cookie-bite"></i>
                             REPOSTERIA
                         </span>
-
                         <h3>
                             Pan de trigo
                         </h3>
-
                         <div class="gastronomy-line"></div>
-
                         <p>
                             Prueba el tradicional pan de trigo de Betanzos,
                             un sabor característico del pueblo que conserva
@@ -1075,244 +1213,155 @@
                             sencilla, casera y auténtica que forma parte de la
                             historia y las costumbres de Betanzos.
                         </p>
-
                     </div>
-
-                </article>
-
-                <!-- REPOSTERÍA -->
-
-                <article class="gastronomy-item reverse reveal">
-
-                    <div class="gastronomy-number">
-                        02
-                    </div>
-
-                    <div class="gastronomy-image">
-
-                        <img
-                            src="img/bi"
-                            alt="Repostería tradicional de Betanzos"
-                            loading="lazy">
-
-                    </div>
-
-                    <div class="gastronomy-content">
-
-                        <span class="gastronomy-category">
-                            <i class="fa-solid fa-cookie-bite"></i>
-                            REPOSTERÍA
-                        </span>
-
-                        <h3>
-                            Nombre de la repostería
-                        </h3>
-
-                        <div class="gastronomy-line"></div>
-
-                        <p>
-                            Dulces tradicionales que acompañan
-                            celebraciones y momentos especiales,
-                            conservando sabores propios de nuestra
-                            cultura.
-                        </p>
-
-                    </div>
-
-                </article>
+                </article>         
 
             </div>
-
         </div>
-
     </section>
 
     <!-- =====================================================
-         PLANIFICA TU VISITA
+         5° SECCION PLANIFICA TU VISITA
     ====================================================== -->
     <section
         id="planifica"
         class="section planning-section">
-
         <div class="planning-background"></div>
-
         <div class="container">
-
             <div class="section-header reveal">
-
                 <span class="section-label">
                     <i class="fa-solid fa-map-location-dot"></i>
                     PLANIFICA TU VISITA
                 </span>
-
                 <h2 class="section-title">
                     Todo lo que necesitas
                     <span>para visitar Betanzos</span>
                 </h2>
-
                 <div class="section-line"></div>
-
                 <p class="section-description">
                     Encuentra información útil sobre alojamiento,
                     gastronomía, salud, farmacias y transporte para
                     disfrutar tu visita a Betanzos con mayor facilidad.
                 </p>
-
             </div>
-
             <div class="planning-grid">
-
                 <article
                     class="planning-card reveal"
                     data-planning="alojamientos">
-
                     <div class="planning-card-icon">
                         <i class="fa-solid fa-hotel"></i>
                     </div>
-
                     <div class="planning-card-number">
                         01
                     </div>
-
                     <h3>
                         Alojamientos
                     </h3>
-
                     <p>
                         Encuentra opciones para descansar
                         durante tu visita a Betanzos.
                     </p>
-
                     <span class="planning-card-link">
                         Ver alojamientos
                         <i class="fa-solid fa-arrow-right"></i>
                     </span>
-
                 </article>
 
                 <article
                     class="planning-card reveal"
                     data-planning="restaurantes">
-
                     <div class="planning-card-icon">
                         <i class="fa-solid fa-utensils"></i>
                     </div>
-
                     <div class="planning-card-number">
                         02
                     </div>
-
                     <h3>
                         Restaurantes
                     </h3>
-
                     <p>
                         Descubre lugares donde disfrutar
                         de la gastronomía local.
                     </p>
-
                     <span class="planning-card-link">
                         Ver restaurantes
                         <i class="fa-solid fa-arrow-right"></i>
                     </span>
-
                 </article>
 
                 <article
                     class="planning-card reveal"
                     data-planning="salud">
-
                     <div class="planning-card-icon">
                         <i class="fa-solid fa-hospital"></i>
                     </div>
-
                     <div class="planning-card-number">
                         03
                     </div>
-
                     <h3>
                         Salud
                     </h3>
-
                     <p>
                         Información de centros de salud
                         y servicios médicos.
                     </p>
-
                     <span class="planning-card-link">
                         Ver centros de salud
                         <i class="fa-solid fa-arrow-right"></i>
                     </span>
-
                 </article>
 
                 <article
                     class="planning-card reveal"
                     data-planning="farmacias">
-
                     <div class="planning-card-icon">
                         <i class="fa-solid fa-pills"></i>
                     </div>
-
                     <div class="planning-card-number">
                         04
                     </div>
-
                     <h3>
                         Farmacias
                     </h3>
-
                     <p>
                         Localiza farmacias y puntos de
                         atención farmacéutica.
                     </p>
-
                     <span class="planning-card-link">
                         Ver farmacias
                         <i class="fa-solid fa-arrow-right"></i>
                     </span>
-
                 </article>
 
                 <article
                     class="planning-card reveal"
                     data-planning="transporte">
-
                     <div class="planning-card-icon">
                         <i class="fa-solid fa-bus"></i>
                     </div>
-
                     <div class="planning-card-number">
                         05
                     </div>
-
                     <h3>
                         Transporte
                     </h3>
-
                     <p>
                         Información para movilizarte
                         dentro y fuera de Betanzos.
                     </p>
-
                     <span class="planning-card-link">
                         Ver información
                         <i class="fa-solid fa-arrow-right"></i>
                     </span>
-
                 </article>
-
             </div>
-
         </div>
 
         <div
             class="planning-modal"
             id="planningModal"
             aria-hidden="true">
-
             <div class="planning-modal-overlay"></div>
-
             <div
                 class="planning-modal-content"
                 role="dialog"
@@ -1324,52 +1373,37 @@
                     class="planning-modal-close"
                     id="planningModalClose"
                     aria-label="Cerrar">
-
                     <i class="fa-solid fa-xmark"></i>
-
                 </button>
 
                 <div class="planning-modal-header">
-
                     <span
                         class="planning-modal-icon"
                         id="planningModalIcon">
-
                         <i class="fa-solid fa-hotel"></i>
-
                     </span>
 
                     <div>
-
                         <span
                             class="planning-modal-label"
                             id="planningModalLabel">
-
                             INFORMACIÓN TURÍSTICA
-
                         </span>
-
                         <h3 id="planningModalTitle">
                             Alojamientos
                         </h3>
-
                     </div>
-
                 </div>
-
                 <div
                     class="planning-list"
                     id="planningList">
                 </div>
-
             </div>
-
         </div>
-
     </section>
 
     <!-- =====================================================
-         VESTIMENTA Y DANZA TÍPICA
+         6° SECCION VESTIMENTA Y DANZA TÍPICA
     ====================================================== -->
     <section
         id="vestimenta"
@@ -1628,7 +1662,7 @@
     </section>
 
     <!-- =====================================================
-         EVENTOS Y FESTIVIDADES
+         7° SECCION EVENTOS Y FESTIVIDADES
     ====================================================== -->
     <section
         id="eventos"
@@ -2529,77 +2563,62 @@
     </section>
 
     <!-- =====================================================
-         GALERÍA
+         8° SECCION GALERÍA
     ====================================================== -->
     <section
         id="galeria"
         class="section gallery-section">
-
         <div class="container">
-
             <div class="section-header reveal">
-
                 <span class="section-label">
                     <i class="fa-solid fa-images"></i>
                     IMÁGENES DE BETANZOS
                 </span>
-
                 <h2 class="section-title">
                     Galería
                     <span>turística</span>
                 </h2>
-
                 <div class="section-line"></div>
-
                 <p class="section-description">
                     Una mirada a los paisajes, lugares,
                     personas y tradiciones de nuestro municipio.
                 </p>
-
             </div>
 
             <div class="gallery-grid">
+                <div class="gallery-item gallery-large reveal">
 
-                <div
-                    class="gallery-item gallery-large reveal">
-
+                    <!-- EMPIEZA FOTOS -->
                     <img
                         src="img/lajas.webp"
                         alt="Paisaje de Lajasmayu, Betanzos"
                         loading="lazy">
-
                     <div class="gallery-caption">
                         <span>
                             Lajasmayu
                         </span>
                     </div>
-
                 </div>
 
                 <div
                     class="gallery-item reveal">
-
                     <img
                         src="img/plaza beta.webp"
                         alt="Plaza Central de Betanzos, Potosí"
                         loading="lazy">
-
                     <div class="gallery-caption">
                         <span>
                             Plaza Central de Betanzos
                         </span>
                     </div>
-
                 </div>
 
                 <div
                     class="gallery-item reveal">
-
                     <img
                         src="img/tirispaya.webp"
                         alt="Hacienda de Aniceto Arce en Tirispaya, Betanzos"
                         loading="lazy">
-
                     <div class="gallery-caption">
                         <span>
                             Hacienda de Aniceto Arce
@@ -2607,77 +2626,63 @@
                             "Tirispaya"
                         </span>
                     </div>
-
                 </div>
 
                 <div
                     class="gallery-item reveal">
-
                     <img
                         src="img/fosiles.webp"
                         alt="Fósiles de Quivincha, Betanzos"
                         loading="lazy">
-
                     <div class="gallery-caption">
                         <span>
                             Fósiles en Quivincha
                         </span>
                     </div>
-
                 </div>
 
                 <div
                     class="gallery-item reveal">
-
                     <img
                         src="img/k'aspi fiesta.webp"
                         alt="K'aspi Fiesta de Betanzos"
                         loading="lazy">
-
                     <div class="gallery-caption">
                         <span>
                             k'aspi fiesta "Betanzos"
                         </span>
                     </div>
-
                 </div>
 
                 <div
                     class="gallery-item reveal">
-
                     <img
                         src="img/cristo de piedra.webp"
                         alt="Cristo de piedra de Tecoya, Betanzos"
                         loading="lazy">
-
                     <div class="gallery-caption">
                         <span>
                             Cristo de piedra "Tecoya"
                         </span>
                     </div>
-
                 </div>
 
                 <div
                     class="gallery-item reveal">
-
                     <img
                         src="img/parroquia.webp"
                         alt="Templo de Betanzos, Potosí"
                         loading="lazy">
-
                     <div class="gallery-caption">
                         <span>
                             Templo de Betanzos
                         </span>
                     </div>
-
                 </div>
 
+
             </div>
-
         </div>
-
     </section>
 
 </main>
