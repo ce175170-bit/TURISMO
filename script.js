@@ -2316,37 +2316,187 @@ const planningData = {
 
             {
                 nombre:
-                    "Farmacia Betanzos",
+                    "Farmacia Papamchis FPM",
 
                 imagen:
-                    "img/planifica/farmacias/farmacia-betanzos.webp",
+                    "farmacia/fpm.webp",
 
                 direccion:
-                    "Avenida Bolívar, frente a COTAP y Parque Infantil",
+                    "Calle Campero - Zona Central",
 
                 telefono:
-                    "+591 79438302",
+                    "77862623",
 
-                maps:
-                    "https://www.google.com/maps/search/?api=1&query=Farmacia+Betanzos+Potosi"
+                 maps:
+                "https://www.google.com/maps/search/?api=1&query=-19.55348101646114%2C-65.45330596226701",
+
+            lat:
+                -19.55348101646114,
+
+            lng:
+                -65.45330596226701
             },
 
+
+            {
+                nombre:
+                    "Farmacia My Pharma",
+
+                imagen:
+                    "farmacia/pharma.jpg",
+
+                direccion:
+                    "Av. Bolivar - Zona Central",
+
+                telefono:
+                    "79438302",
+                
+                maps:
+                "https://www.google.com/maps/search/?api=1&query=-19.553771989596314%2C-65.4528088057384",
+
+            lat:
+                -19.553771989596314,
+
+            lng:
+                -65.4528088057384
+            },
+
+            {
+                nombre:
+                    "Farmacia Sr. Justo Juez",
+
+                imagen:
+                    "farmacia/justo.webp",
+
+                direccion:
+                    "Calle 6 de agosto N° 35 - Zona Central",
+
+                telefono:
+                    "67944950",
+                
+                 maps:
+                "https://www.google.com/maps/search/?api=1&query=-19.554385096622827%2C-65.45391361274467",
+
+            lat:
+                -19.554385096622827,
+
+            lng:
+                -65.45391361274467
+            },
+
+            {
+                nombre:
+                    "Farmacia Alicia",
+
+                imagen:
+                    "farmacia/alicia.webp",
+
+                direccion:
+                    "Av. Final Bolivar - Zona Chorrillos",
+
+                telefono:
+                    "79438302",
+                
+                 maps:
+                "https://www.google.com/maps/search/?api=1&query=-19.553933957316218%2C-65.44642481988261",
+
+            lat:
+                -19.553933957316218,
+
+            lng:
+                -65.44642481988261
+            },
+
+            {
+                nombre:
+                    "Farmacia Farma Uriel ",
+
+                imagen:
+                    "farmacia/uriel.webp",
+
+                direccion:
+                    "Av. Hugo Demetrio Castro - Zona Chorrillos",
+
+                telefono:
+                    "71816536",
+                
+                 maps:
+                "https://www.google.com/maps/search/?api=1&query=-19.556353495271928%2C-65.44708560959748",
+
+            lat:
+                -19.556353495271928,
+
+            lng:
+                -65.44708560959748
+            },
 
             {
                 nombre:
                     "Farmacia Medrano",
 
                 imagen:
-                    "img/planifica/farmacias/farmacia-medrano.webp",
+                    "farmacia/medrano.webp",
 
                 direccion:
-                    "Zona Chorrillos, Avenida Final Bolívar",
+                    "Av. Bolivar - Zona Chorrillos",
 
                 telefono:
-                    "No disponible",
+                    "72369589",
+                
+                 maps:
+                "https://www.google.com/maps/search/?api=1&query=-19.55340275411357%2C-65.44580956438315",
 
-                maps:
-                    "https://www.google.com/maps/search/?api=1&query=Farmacia+Medrano+Betanzos+Potosi"
+            lat:
+                -19.55340275411357,
+
+            lng:
+                -65.44580956438315
+            },
+
+            {
+                nombre:
+                    "Farmacia Maxisalud",
+
+                imagen:
+                    "farmacia/maxi.webp",
+
+                direccion:
+                    "Av. Bolivar - Zona Ferroviario",
+
+                telefono:
+                    "78720012 / 72863895",
+                
+                 maps:
+                "https://www.google.com/maps/search/?api=1&query=-19.554045225382396%2C-65.44933149836118",
+
+            lat:
+                -19.554045225382396,
+
+            lng:
+                -65.44933149836118
+            },
+
+             {
+                nombre:
+                    "Farmacia  Farmalyp",
+
+                imagen:
+                    "farmacia/li.webp",
+
+                direccion:
+                    "Av. Bolivar - Zona Ferroviario",
+
+                telefono:
+                    "63358225",
+                
+                  maps:
+                "https://www.google.com/maps/search/?api=1&query=-19.55387614030003%2C-65.45080828483428",
+
+            lat:
+                -19.55387614030003,
+
+            lng:
+                -65.45080828483428
             }
 
         ]
