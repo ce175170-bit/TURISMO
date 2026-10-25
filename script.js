@@ -2136,7 +2136,7 @@ const planningData = {
                     "Betanzos, Potosí",
 
                 telefono:
-                    "69621569",
+                    "71831553",
 
                 maps:
                     "https://www.google.com/maps/search/?api=1&query=-19.55335185615868%2C-65.45253379260363"
@@ -2154,7 +2154,7 @@ const planningData = {
                     "Calle Potosí",
 
                 telefono:
-                    "69621569",
+                    "73441403",
 
                 maps:
                     "https://www.google.com/maps/search/?api=1&query=-19.55279026898487%2C-65.45379206937685"
@@ -2172,10 +2172,27 @@ const planningData = {
                     "Av. Bolivar",
 
                 telefono:
-                    "69621569",
+                    "72846195",
 
                 maps:
                     "https://www.google.com/maps/search/?api=1&query=-19.554243349547733%2C-65.44919019338394"
+            },
+
+            {
+                nombre:
+                    "Alojamiento COPACABANA",
+
+                imagen:
+                    "img/copacabana.png",
+
+                direccion:
+                    "Av. Hermanos Pereira",
+
+                telefono:
+                    "69317482",
+
+                maps:
+                    "https://www.google.com/maps/search/?api=1&query=-19.55477308883634%2C-65.45318176985145"
             }
 
         ]
@@ -2265,7 +2282,7 @@ const planningData = {
                     "img/hospital.webp",
 
                 direccion:
-                    "Betanzos, Potosí",
+                    "Betanzos - Barrio Chorrillos - Calle Hugo Demetrio Castro",
 
                 telefono:
                     "+591 26279102",
@@ -2286,10 +2303,27 @@ const planningData = {
                     "Betanzos, Potosí",
 
                 telefono:
-                    "+591 26279102",
+                    "2-6279102",
 
                 maps:
                     "https://www.google.com/maps/search/?api=1&query=-19.556786314307114%2C-65.45282140674607"
+            },
+
+            {
+                nombre:
+                    "Centro de Salud Avaroa",
+
+                imagen:
+                    "img/avaroa.jpg",
+
+                direccion:
+                    "Zona Avaroa",
+
+                telefono:
+                    "Consultar en el centro de Salud",
+
+                maps:
+                    "https://www.google.com/maps/search/?api=1&query=-19.549435600736995%2C-65.45824013791258"
             }
 
         ]
@@ -2523,37 +2557,37 @@ const planningData = {
 
             {
                 nombre:
-                    "Transporte local",
+                    "La florida - Ruta: Betanzos-Sucre",
 
                 imagen:
-                    "img/planifica/transporte/transporte-local.webp",
+                    "img/florida.png",
 
                 direccion:
-                    "Betanzos, Potosí",
+                    "Betanzos, la k'asa",
 
                 telefono:
-                    "Consultar localmente",
+                    "63317975",
 
                 maps:
-                    "https://www.google.com/maps/search/?api=1&query=Transporte+Betanzos+Potosi"
+                    "https://www.google.com/maps/search/?api=1&query=-19.55271522131544%2C-65.44284142988029"
             },
 
 
             {
                 nombre:
-                    "Transporte hacia Potosí",
+                    "Rapiditos Thumillki - Ruta: Betanzos-Potosí",
 
                 imagen:
-                    "img/planifica/transporte/transporte-potosi.webp",
+                    "img/rapidito.png",
 
                 direccion:
-                    "Puntos de salida locales",
+                    "Av. Hermanos Pereira",
 
                 telefono:
-                    "Consultar horarios",
+                    "68421113",
 
                 maps:
-                    "https://www.google.com/maps/search/?api=1&query=Transporte+Betanzos+Potosi"
+                    "https://www.google.com/maps/search/?api=1&query=-19.5547845454176%2C-65.45317756116462"
             }
 
         ]
